@@ -1,0 +1,349 @@
+/* ==========================================================================
+   AUXILIARY NAVIGATION
+   ========================================================================== */
+
+.header-aux-container .UtilityNavigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.navbar-toggle {
+    vertical-align: middle;
+    background-color: $navbar-default-toggle-active-bg; // by default, assign it the active bg color
+    border-color: $navbar-default-toggle-border-color;
+    border-radius: $navbar-toggle-border-radius;
+    margin-left: $navbar-toggle-margin-left;
+
+    .header-dark & {
+        background-color: $navbar-alt-toggle-active-bg;
+        border-color: $navbar-alt-toggle-border-color;
+    }
+
+    &.collapsed {
+        background-color: $navbar-default-toggle-bg; // use the regular bg color when it's collapsed
+        .header-dark & {
+            background-color: $navbar-alt-toggle-bg;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        background-color: $navbar-default-toggle-hover-bg;
+        .header-dark & {
+            background-color: $navbar-alt-toggle-hover-bg;
+        }
+    }
+
+    .icon-bar {
+        background-color: $navbar-default-toggle-icon-bar-bg;
+
+        @if ($navbar-toggle-border-radius > 0) {
+            border-radius: 3px;
+        }
+
+        .header-dark & {
+            background-color: $navbar-alt-toggle-icon-bar-bg;
+        }
+    }
+
+    .icon-search {
+        @include vertical-align(22px, $navbar-toggle-height - 2px);
+    }
+}
+
+
+.header-aux-container {
+    .UtilityAuthentication a,
+    a.NavigationLink,
+    .UtilityNavigation .account-menu > li > a.sign-in-link,
+    .account-toggle .nav-text {
+        color: $navbar-auxiliary-link-color;
+        font-size: $navbar-auxiliary-font-size;
+        text-decoration: none;
+        font-weight: bold;
+
+        &:hover, &:focus, &:hover span, &:focus span {
+            color: $navbar-auxiliary-link-color;
+            text-decoration: underline;
+        }
+
+        .header-dark & {
+            color: $navbar-alt-auxiliary-link-color;
+
+            &:hover, &:focus, &:hover span, &:focus span { color: $navbar-alt-auxiliary-link-color; }
+        }
+    }
+
+    .UtilityNavigation .account-menu > li > a.sign-in-link {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .UtilityTranslation {
+        margin-left: $navbar-toggle-margin-left;
+        margin-right: $navbar-toggle-margin-left;
+    }
+
+    .UtilityTranslation select {
+        height: 32px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .caret {
+        border-top-color: $navbar-auxiliary-link-color;
+
+        .header-dark & { border-top-color: $navbar-alt-auxiliary-link-color; }
+    }
+}
+
+$icon-size: 22px;
+
+/* Auxiliary button links
+   ========================================================================== */
+/* Button-style auxiliary links (e.g. Cart, My account) */
+.nav-auxiliary .nav-aux-button {
+    &.NavigationListItem {
+        position: relative; /* required for cart indicator placement */
+        display: inline-block;
+    }
+
+    &.nav-aux-cart, &.nav-aux-account {
+        .NavigationLink {
+            width: $navbar-toggle-height;
+            height: $navbar-toggle-height;
+            border-radius: $navbar-toggle-border-radius;
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: $navbar-toggle-margin-left;
+            border: 1px solid transparent;
+            background-color: $navbar-default-toggle-bg;
+            text-align: center;
+
+            .header-dark & {
+                background-color: $navbar-alt-toggle-bg;
+            }
+        }
+        
+        .nav-text {
+            display: inline-block;
+            vertical-align: middle;
+            background-image: url('images/IconSprite.png');
+            // TODO: replace with UltraWave version
+            // background-image: url($sprite-path-default);
+            background-repeat: no-repeat;
+            height: $icon-size;
+            min-width: $icon-size;
+            line-height: $icon-size;
+            overflow: hidden;
+            @include vertical-align($icon-size, $navbar-toggle-height - 2px);
+        }
+    }
+    // Set icon for each nav link
+    &.nav-aux-cart {
+        .NavigationLink:hover, .NavigationLink:focus { 
+            background-color: $navbar-default-toggle-hover-bg;
+
+            .header-dark & { background-color: $navbar-alt-toggle-hover-bg; }
+        }
+        .nav-text {
+            background-position: -252px -78px;
+            @include text-hide();
+            @include size($icon-size);
+        }
+    }
+    &.nav-aux-account .NavigationLink {
+        @include respond-to('grid small') {
+            &:hover, &:focus { 
+                background-color: $navbar-default-toggle-hover-bg;
+
+                .header-dark & { background-color: $navbar-alt-toggle-hover-bg; }
+            }
+        }
+        @include respond-to('grid large') {
+            width: auto;
+        }
+    }
+    &.nav-aux-account .nav-text {
+        background-position: -986px -76px;
+        padding-left: 27px;
+        @include respond-to('grid small') {
+            @include size($icon-size);
+            padding-left: 0;
+            @include text-hide();
+        }
+    }
+    /* Cart Item Flag indicating how many items are in your cart */
+    &.nav-aux-cart {
+        .cartFull {
+            /* left postion is padding plus placement */
+            position: absolute;
+            top: 0;
+            right: -2px;
+            line-height: $badge-line-height;
+            width: 1.6em;
+        }
+
+        .cartCenter {
+            @include badge-style($cart-count-color, $cart-count-bg, 2px);
+        }
+    }
+}
+
+
+/* Dark header
+   ========================================================================== */
+.header-dark {
+    .header-logo path {
+        fill: $white;
+    }
+
+    .obo-toggle, .ste-toggle {
+        background-position-y: -105px;
+    }
+
+    .navbar-toggle .icon-search {
+        background-position-y: -112px;
+    }
+
+    // TODO: Replace with CSS class
+    .UtilitySearch #SimpleSearchBlock .search-field {
+        background-position-y: -75px;
+
+        &:focus {
+            background-position-y: 5px;
+        }
+    }
+
+    .nav-auxiliary .nav-aux-button {
+        &.nav-aux-cart .nav-text, &.nav-aux-account .nav-text {
+            background-position-y: -112px;
+        }
+    }
+}
+
+// Easy Edit & 'On Behalf Of' toggle buttons
+// -------------------------------------------
+a.ste-toggle,
+.obo-toggle,
+.batch-toggle,
+.transaction-date-toggle {
+    background-color: $navbar-default-toggle-bg;
+    margin-right: 0;
+    border-radius: $navbar-toggle-border-radius;
+
+    .header-dark & { background-color: $navbar-alt-toggle-bg; }
+}
+.obo-toggle {
+    @include respond-to('grid large') {
+        margin-top: 2px;
+    }
+}
+a.ste-toggle:focus, a.ste-toggle:hover,
+.obo-toggle:focus, .obo-toggle:hover,
+.batch-toggle:focus, .batch-toggle:hover,
+.transaction-date-toggle:focus, .transaction-date-toggle:hover {
+    background-color: $navbar-default-toggle-hover-bg;
+
+    .header-dark & { background-color: $navbar-alt-toggle-hover-bg; }
+}
+
+.obo-toggle.on, .ste-toggle.on,
+.batch-toggle.on, .transaction-date-toggle.on {
+    background-color: $navbar-default-toggle-active-bg;
+
+    &:hover, &:active { background-color: lighten($navbar-default-toggle-active-bg, 5%); }
+
+    .header-dark & { 
+        background-color: $navbar-alt-toggle-active-bg; 
+
+        &:hover, &:active { background-color: lighten($navbar-alt-toggle-active-bg, 5%); }
+    }
+}
+
+.OnBehalfOfContainer { width: 100%; }
+
+.UtilitySection.UtilitySearch {
+    @include respond-to('grid small') {
+        display: none;
+    }
+}
+
+// Search Field (Auxiliary)
+// -------------------------
+// TODO: Replace with CSS class
+#SimpleSearchBlock {
+    .search-field {
+        background: $input-bg url($header-sprite-path) no-repeat;
+        background-position: 5px 5px;
+        padding-left: 28px;
+    }
+    .TextButton {
+        display: none;
+    }
+}
+
+.UtilitySearch {
+    #SimpleSearchBlock .search-field {
+        margin: 0;
+        @include size($navbar-toggle-height);
+        border-color: transparent;
+        box-shadow: none;
+        padding-right: 0;
+        background-color:  $navbar-default-toggle-bg;
+        color: transparent;
+        @include transition(width 1s);
+
+        &:hover {
+            cursor: pointer;
+            background-color: $navbar-default-toggle-hover-bg;
+        }
+
+        &:focus {
+            width: 13em;
+            border-color: $input-border;
+            box-shadow: $input-box-shadow;
+            background-color: $input-bg;
+            padding-right: $padding-base-horizontal;
+            color: $text-color;
+        }
+
+        .header-dark & {
+            background-color: $navbar-alt-toggle-bg;
+
+            &:hover { background-color: $navbar-alt-toggle-hover-bg; }
+            &:focus { background-color: $input-bg; }
+        }
+    }
+}
+
+
+/* Auxiliary/Primary switch
+   ========================================================================== */
+/**
+ * A class that allows a navigation to display in the primary nav on xs screens 
+ * and the auxiliary nav on wider screens. 
+ * To use this configure the nav item to not be hidden and also display in the 
+ * auxiliary navigaiton item. 
+ */
+@include breakpoint(max-width $screen-xs-max) {
+  @include responsive-invisibility('.nav-auxiliary .nav-aux-primary-switch');
+}
+@include breakpoint($screen-sm-min) {
+  @include responsive-invisibility('.nav-primary .nav-aux-primary-switch');
+}
+@include respond-to('grid small') {  
+    .searchbar-collapse { 
+        width: 100%;       
+        .search-container { 
+            padding: 0; 
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }               
+    .header-container .UtilityNavigation.nav-auxiliary { 
+        text-align: right;
+    }
+}

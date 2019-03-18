@@ -1,0 +1,115 @@
+﻿/* ==========================================================================
+   DASHBOARDS
+   ========================================================================== */
+/* Zone or iPart style for the staff dashboards for consistent styling */
+
+.ProgressTracker_Dashboard,
+.ProgressTracker_Dashboard_Overview {
+    .panel-body {
+        padding-top: 0;
+    }
+
+    .label {
+        font-size: 120%;
+        display: block;
+        margin-top: 10px;
+    }
+
+    .ProgressBar {
+        margin-left: -$panel-body-padding;
+        margin-right: -$panel-body-padding;
+    }
+}
+
+.ProgressTracker2,
+.ProgressTracker_Dashboard,
+.ProgressTracker_Dashboard_Overview {
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul, li {
+        list-style-type: none;
+    }
+
+    .count {
+        font-weight: $font-weight-bold;
+        display: block;
+        line-height: 1;
+        letter-spacing: -1px;
+    }
+
+    .label {
+        line-height: 1;
+    }
+
+    .ProgressBar {
+        margin-top: $panel-body-padding;
+        margin-bottom: $panel-body-padding;
+        position: relative;
+        background-color: rgba(0,0,0,.1);
+
+        > span {
+            display: block;
+            height: 100%;
+            background-color: $color-callout;
+            position: relative;
+            overflow: hidden;
+        }
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.ProgressTracker_Dashboard {
+    .panel-heading.Distinguish {
+        padding-bottom: 0;
+    }
+    .inset { 
+        display: block;
+        padding-bottom: 15px; 
+    }
+}
+.ProgressTracker2,
+.ProgressTracker_Dashboard  {
+    .count {
+        font-size: 350%;
+    }
+    .ProgressBar {
+        padding: 0;
+        height: 18px;
+    }
+}
+
+.ProgressTracker_Dashboard_Overview {
+    .panel {
+        /* default the overview PTs to the same height */
+        min-height: 10em;
+    }
+    .panel-heading.Distinguish {
+        border-bottom-color: transparent;
+    }
+    .count {
+        font-size: 250%;
+    }
+    .ProgressBar {
+        height: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+.StaffDashboard {
+    h2,
+    .panel-heading.Distinguish, 
+    .PanelHead.Distinguish, 
+    .TitleBarCaption {
+        border-bottom-color: transparent;
+
+        &.Collapsible {
+            border-bottom-color: $border-color;
+        }
+    }
+}

@@ -1,0 +1,51 @@
+﻿/* ==========================================================================
+   CONTENT ITEMS
+   ========================================================================== */
+
+/* Open Invoices
+   ========================================================================== */
+
+.OpenInvoicesTotals {
+    .SelectedTotal .PanelFieldValue {
+        color: $color-callout;
+    }
+}
+
+/* Group List Editor
+   ========================================================================== */
+.RadTreeView.GLE {
+    .rtLI { margin-bottom: .3em; }
+    .rtIn, .rtHover .rtIn, .rtSelected .rtIn { 
+        background-color: transparent; 
+        border: none;
+        color: $link-color;
+    }
+    a, span[onclick]
+    {
+        &:hover, 
+        &:focus {
+            background-color: $selected-highlight;
+            color: #fff;
+        }
+    }
+    @if ($border-radius-base > 0) {
+        .rtImg {
+            border-radius: $border-radius-base;
+        }
+    }
+}
+
+/* Communiaction Preferences
+   ========================================================================== */
+.CommunicationPreferencesSection {
+    background-color: $color-alt-bg;
+}
+
+@if ($btn-style == 'pushable') {
+    /* Big Button Panel
+       ========================================================================== */
+    .HorizontalButtons a.btn {
+        /*give the drop-shadow some room to breathe */
+        margin-bottom: .6em;
+    }
+}

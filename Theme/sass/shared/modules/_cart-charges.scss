@@ -1,0 +1,26 @@
+﻿/* Cart Charges
+   ========================================================================== */
+.CartCharges
+{
+    background-color: $color-alt-bg;
+    .PanelField {
+        border-bottom: none;
+        border-top: 1px $border-style $border-color;
+
+        &:first-child, 
+        .GrandTotal {
+            border-top: none;
+        }
+    }
+
+    .GrandTotal .PanelField {
+        background-color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $color-callout;
+
+        .Label {
+            color: $color-callout;
+        }
+    }
+}

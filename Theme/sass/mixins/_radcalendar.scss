@@ -1,0 +1,24 @@
+﻿// From iMIS 20.3
+
+@mixin radcalendar-metrotouch() {
+    .rcTitlebar .rcPrev, .rcTitlebar .rcNext, .rcTitlebar .rcFastPrev, .rcTitlebar .rcFastNext {
+        color: $color-base;
+
+        &:hover {
+            border-color: $color-base;
+        }
+    }
+
+    .rcRow .rcToday a {
+        border-color: $color-base;
+    }
+
+    .rcMain .rcRow .rcSelected a, td.rcSelected a, #rcMView_Today {
+        border-color: $color-base;
+        background: $color-base;
+    }
+
+    .rcSelected a {
+        background: $color-base;
+    }
+}

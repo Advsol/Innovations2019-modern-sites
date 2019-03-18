@@ -1,0 +1,26 @@
+﻿// From Bootstrap 4.2.1
+// AR: Added publish-date mixin
+
+// Typography
+
+@mixin text-emphasis-variant($parent, $color) {
+    #{$parent} {
+        color: $color !important;
+    }
+
+    @if $emphasized-link-hover-darken-percentage != 0 {
+        a#{$parent} {
+            &:hover, &:focus {
+                color: darken($color, $emphasized-link-hover-darken-percentage) !important;
+            }
+        }
+    }
+}
+
+
+// Date lines (for publish dates)
+// ------------------------------
+@mixin publish-date {
+    font-size: 85%;
+    font-style: italic;
+}

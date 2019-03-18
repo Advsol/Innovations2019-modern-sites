@@ -1,0 +1,96 @@
+// BREAKPOINT SETUP
+// --------------------------------------------
+// This file is required in ALL themes to set up
+// some variables for the Breakpoint plugin
+// https://github.com/at-import/breakpoint/wiki
+
+// Breakpoint variables
+// -----------------------------
+// These variables are set up to be responsive-first
+
+// wrapper class to indicate the browser doesn't have media query support (IE8)
+// Note: if you change this class, you must change it on the Master Page where it is being set,
+// as well as on the wrapper used in layout previews to make them appear as if on desktop
+$mq-fallback-class:     '.no-mqs' !default;
+
+// Need to add the Mobile- and Desktop-only variables first
+// because !default variables cannot overwrite even other !default variables...
+@if ($view-type == 'Desktop' or $view-type == 'Mobile') {
+    $breakpoint-no-query-fallbacks:     false !global; // **
+    $breakpoint-no-queries:             true !global; // **
+
+    $no-query-default:                  true !global !default;
+}
+@else {
+    $breakpoint-no-query-fallbacks:     false !global; // **
+    $breakpoint-no-queries:             false !global; //**
+}
+ 
+
+// whether to use fallback classes in the breakpoint mixin
+$no-query-default:                  $mq-fallback-class !default;
+
+// Desktop styles will work with the Responsive setup
+// but Mobile needs to reverse the logic
+@if ($view-type == 'Mobile') {
+    // include mobile-only styles, but do not include desktop-only styles
+    $no-query-desktop:              false !global !default;
+    $no-query-mobile:               $no-query-default !global !default;
+}
+
+// default no-queries should be the fallback class for Responsive themes
+// and true for Mobile- or Desktop-only sites
+$no-query-desktop:                  $no-query-default !default;
+$no-query-mobile:                   false !default;
+
+// Respond-to  
+// -----------------------------
+// Set up breakpoints for respond-to
+
+// Default is for responsive themes - no fallbacks for mobile-only styles, 
+// wrapper class fallback for IE8
+
+// Overwrite as necessary for different theme types (i.e. Mobile, Desktop)
+// using the parameter $overwrite: true
+// Note that !default does not apply to these setups
+
+// mobile-only styles: do not provide no-query fallbacks for responsive designs
+$breakpoints: add-breakpoint('smartphones and down', max-width $screen-xs-max);
+$breakpoints: add-breakpoint('tablets and down', max-width $screen-sm-max);
+$breakpoints: add-breakpoint('grid small', max-width ($grid-float-breakpoint - 1));
+
+// tablet- and desktop-and-up queries: provide no-query fallbacks for styles that apply to 1024px-wide resolutions (e.g. $screen-md)
+$breakpoints: add-breakpoint('smartphones and up', ($screen-xs-min, 'no-query' $no-query-desktop));
+$breakpoints: add-breakpoint('tablets and up', ($screen-sm-min, 'no-query' $no-query-desktop));
+$breakpoints: add-breakpoint('desktops and up', ($screen-md-min, 'no-query' $no-query-desktop));
+$breakpoints: add-breakpoint('grid large', ($grid-float-breakpoint, 'no-query' $no-query-desktop));
+
+// tablet- and large-only breakpoints are the same in all themes (no fallbacks needed)
+$breakpoints: add-breakpoint('tablets only', $screen-sm-min $screen-sm-max);
+
+// pixel ratio queries: for retina and other HD devices
+$breakpoints: add-breakpoint('HD', min-resolution 1.5dppx);
+
+
+// NOTE: these are needed right now because for some reason respond-to
+// does not work with boolean variables
+@if ($view-type == Desktop) {
+    // mobile-only styles: do not apply these to desktop-only themes
+    $breakpoints: add-breakpoint('smartphones and down', max-width $screen-xs-max, $overwrite: true) !global;
+    $breakpoints: add-breakpoint('tablets and down', max-width $screen-sm-max, $overwrite: true) !global;
+    $breakpoints: add-breakpoint('grid small', max-width ($grid-float-breakpoint - 1), $overwrite: true) !global;
+}
+@else if ($view-type == Mobile) {
+    // mobile-only styles: these should apply to mobile-only themes
+    $breakpoints: add-breakpoint('smartphones and down', (max-width $screen-xs-max, 'no-query' true), $overwrite: true) !global;
+    $breakpoints: add-breakpoint('tablets and down', (max-width $screen-sm-max, 'no-query' true), $overwrite: true) !global;
+    $breakpoints: add-breakpoint('grid small', (max-width ($grid-float-breakpoint - 1), 'no-query' true), $overwrite: true) !global;
+
+    // tablet-and-up queries: do not apply these styles to mobile-only themes
+    $breakpoints: add-breakpoint('smartphones and up', $screen-xs-min, $overwrite: true) !global;
+    $breakpoints: add-breakpoint('tablets and up', $screen-sm-min, $overwrite: true) !global;
+    $breakpoints: add-breakpoint('desktops and up', $screen-md-min, $overwrite: true) !global;
+    $breakpoints: add-breakpoint('grid large', $grid-float-breakpoint, $overwrite: true) !global;
+}
+
+// ** these variables cannot be set to !default - they will break the breakpoint mixin

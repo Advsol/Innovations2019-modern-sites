@@ -1,0 +1,157 @@
+﻿/* ==========================================================================
+   MOBILE OPTIMIZATION
+   ========================================================================== */
+/* Overrides and styles for mobile optimization */
+
+/* We do not want surf-to-edit to appear in a mobile phone environment, but it should be available in desktop */
+@media all and (max-width:700px)
+{
+    .SurfEdit, .ContentItemButtonPanel, .ContentRecordPageButtonPanel, .NoContentSTEContainer, .SurfEditOn
+    {
+        display:none!important;
+    }
+}
+
+/* The following is used by the title bar when an action (e.g. select) is available */
+.TitleBarActionBox {
+    height: 24px;
+    width: 24px;
+    background-image: url('images/titlebaractionbox.gif');
+    margin-left: 8px;  
+}
+
+//.StandardPanel .PanelField
+//{
+//    width: 99%;
+//}
+
+.PanelField label {
+    width: 8.5em;
+}
+
+input {
+    width: 10em;
+}
+
+/* <Event Display > */
+.EventDetails .ContactLocationArea,
+.EventDetails .RegistrationArea {
+    width: auto;
+    float: none;
+}
+
+.RegistrationArea .TextButton {
+    width: 100%;
+}
+
+/* no longer needed in mobile context */
+.ProgramItemSummary .WhenColumn { 
+    display: none;
+}
+
+.ProgramItemSummary .DescriptionColumn,
+.ProgramItemSummary .IteneraryColumn {
+    width: auto;
+    float: none;
+    margin-left: 0;
+}
+
+.ProgramItemSummary .IteneraryColumn {
+    padding-left: 3px; /* to align the Remove and Add buttons with the progarm item details text */
+}
+
+.RegistrantInfoContainer {
+    padding: 0;
+}
+
+.RegistrantInfoEntry {
+    position: relative;
+    float: left;
+    width: 290px;
+    border: none;
+    padding-right: 0;
+    left: 0;
+}
+
+.RegistrantInfoAddressList {
+    margin-left: auto;
+    clear: left;
+}
+
+.RegistrantInfoBadgeBackground {
+    background-color: #ffffff;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.RegistrantInfoBadge {
+    background-color: #ECECEB;
+    border: 1px solid #ADADAD;
+    padding: 0;
+    margin: 0;
+}
+
+.RegistrantInfoBadge img {
+    display: none;
+}
+
+.RegistrantInfoAddressEntry
+{
+    background-color: #F8F7F6;
+    padding: 0;
+    margin-top: 5px;
+}
+
+/* For any event questions defined that accept answers within a multi-line textbox, this selector reduces the width of the textarea */
+.FormFieldResponse textarea
+{
+    width: 16em;
+}
+
+/* Solves a display problem in IE8 */
+.EventSummary .PhotoArea img 
+{
+    max-width: none;
+}
+
+/* </Event Display > */
+
+/* Add a pipe to separate utility navigation items */
+#masterTopBarAuxiliary .NavigationListItem {
+    border-left: 1px solid $text-color;
+    &:first-child {
+        border-left: none;
+    }
+}
+
+/* Add visual separation for the search area in the footer */
+#masterSearchArea {
+    background-color: lighten($hover-highlight, 10%);
+}
+
+/* Make the Rad Grid Metro Touch theme conform to our colors */
+.RadGrid_MetroTouch .rgNumPart a.rgCurrentPage,
+.RadGrid_MetroTouch .rgNumPart a.rgCurrentPage:hover {
+    background-color: $color-base !important;
+    border-color: $color-base !important;
+    color: $white !important;
+}
+
+/* Make the search results description wrap under the picture */
+.SearchResultSummary .Description {
+    margin-left: 0;
+}
+
+.SearchResultSummary .ImageSection {
+    text-align: left;
+}
+
+/* Make sure the address in the address editor doesn't overlap the right column */
+.AddressEditor .col-sm-6 {
+    width:100%;
+    margin-bottom: .5em;
+}
+
+.LabelSpacer, .LabelSpacer.PanelField {
+    padding-left: 8em;
+}

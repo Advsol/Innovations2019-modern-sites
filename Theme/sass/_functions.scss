@@ -1,0 +1,19 @@
+﻿// Utility mixins and functions for evaluating source code across our variables, maps, and mixins.
+
+// Color contrast
+// From Bootrap 4.1. Function to get the appropriate color (i.e. black or white) for 
+// contrast with the passed-in color
+@function color-yiq($color) {
+    $r: red($color);
+    $g: green($color);
+    $b: blue($color);
+
+    $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+    @if ($yiq >= $yiq-contrasted-threshold) {
+        @return $yiq-text-dark;
+    }
+    @else {
+        @return $yiq-text-light;
+    }
+}

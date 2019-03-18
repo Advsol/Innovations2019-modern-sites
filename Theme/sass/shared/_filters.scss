@@ -1,0 +1,40 @@
+﻿/* Color filters
+   ========================================================================== */
+[class*="filter-blend"] {
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        mix-blend-mode: multiply;
+    }
+}
+
+[class*="filter-blend-color-"]:before {
+    mix-blend-mode: color;
+}
+
+[class*="filter-blend-multiply-"]:before {
+    mix-blend-mode: multiply;
+}
+
+[class*="filter-blend-"][class*="-base"]:before {
+    background-color: $color-base;
+}
+
+[class*="filter-blend-"][class*="-callout"]:before {
+    background-color: $color-callout;
+}
+
+[class*="filter-blend-"][class*="-secondary-a"]:before {
+    background-color: $color-secondary-a;
+}
+
+[class*="filter-blend-"][class*="-secondary-b"]:before {
+    background-color: $color-secondary-b;
+}

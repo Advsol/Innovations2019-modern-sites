@@ -1,0 +1,25 @@
+﻿// From iMIS 20.3
+
+// Link styles
+// -------------------------
+// Pass in '!important' if important is needed
+@mixin link-styles($suffix: '') {
+    color: $link-color #{$suffix};
+    text-decoration: $link-decoration;
+
+    &:visited {
+        color: $link-color-visited #{$suffix};
+    }
+
+    &:hover, &:focus, &:active {
+        color: $link-color-hover #{$suffix};
+        text-decoration: underline;
+    }
+
+    &.aspNetDisabled {
+        &, &:hover, &:focus, &:active, &:visited {
+            color: $link-color-disabled #{$suffix};
+            text-decoration: $link-decoration;
+        }
+    }
+}

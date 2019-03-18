@@ -1,0 +1,17 @@
+﻿// From Bootstrap 3.3.0
+// Deprecated in Bootstrap 4.1.0
+
+@mixin text-hide() {
+    font: #{0/0} a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+@mixin screen-reader-only() {
+    position: absolute;
+    left: -10000px;
+    z-index: 2000;
+    font-size: 70%;
+}

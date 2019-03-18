@@ -1,0 +1,31 @@
+﻿// From Bootstrap 3.3.0
+// Deprecated in Bootstrap 4.0
+
+// Responsive utilities
+// -------------------------
+// More easily include all the states for responsive-utilities.less.
+// [converter] $parent hack
+@mixin responsive-visibility($parent) {
+    #{$parent} {
+        display: block !important;
+    }
+
+    tr#{$parent} {
+        display: table-row !important;
+    }
+
+    th#{$parent},
+    td#{$parent} {
+        display: table-cell !important;
+    }
+}
+
+// [converter] $parent hack
+@mixin responsive-invisibility($parent) {
+    #{$parent},
+    tr#{$parent},
+    th#{$parent},
+    td#{$parent} {
+        display: none !important;
+    }
+}

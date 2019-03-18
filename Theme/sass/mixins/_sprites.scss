@@ -1,0 +1,14 @@
+﻿// From iMIS 20.3
+
+// generate sprite background positions
+@mixin sprite-bg($gridSize, $multiplier, $changeOnHover: true, $startingX: 0) {
+    &, &[disabled]:hover, &.Disabled:hover, &.aspNetDisabled:hover, a.aspNetDisabled:hover & {
+        background-position: $gridSize*$multiplier $startingX
+    }
+
+    @if $changeOnHover {
+        &:hover, &:focus, a:hover &, a:focus & {
+            background-position: $gridSize*$multiplier $startingX+$gridSize
+        }
+    }
+}

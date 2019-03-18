@@ -1,0 +1,312 @@
+﻿/* ==========================================================================
+   JUMBOTRON
+   ========================================================================== */
+/* Home page full width banners */
+
+
+/* Home page full width area
+   ========================================================================== */
+/* This is for the full width area of the Cities and Cities_Responsive home page.
+ * It uses a content area to acheive the full width
+ */ 
+.HomePageFullWidthArea  .ContentItemContainer  .panel,
+.HomePageFullWidthArea  .ContentItemContainer  div  .panel {
+    &:not(.panel-border) {
+        /* if borders are not turned on don't leave the space for them */
+        border-width: 0;
+    }
+
+    .panel-body-container  .panel-body {
+        /* Turn off the padding on iPart panels */
+        padding: 0;
+    }
+}
+
+/* Header backgrounds
+   ========================================================================== */
+.header-bg {
+    background-color: $navbar-default-bg;
+
+    .header-dark & {
+        background-color: $navbar-alt-bg;
+    }
+}
+
+.carousel, 
+.carousel2 {
+    .img-copyright {
+        width: 100%;
+        text-align: right;       
+        font-size: 70%;
+
+        a, a:hover, a:focus, a:visited, a:active {
+            color: $carousel-caption-color;
+        }
+    }
+}
+
+/* Carousel
+   ========================================================================== */
+/* Used by the Slideshow iPart */
+
+.carousel, .carousel2, .HomePageFullWidthArea {
+    position: relative;
+    
+    h1, h2, h3, h4, h5 {
+        font-weight: $font-weight-bold;
+        display: inline-block;
+    }
+    @include respond-to('tablets and down') {
+        h1 {  font-size: 200%; }
+    }      
+
+    .carousel-caption {     
+        padding: 1em;
+        position: absolute;
+        font-family: $carousel-caption-font-family;
+        bottom: auto;
+        top: calc(500px / 2);
+        background-color: $carousel-caption-bg-color;
+        text-align: $carousel-caption-text-alignment; 
+        color: $carousel-caption-color;
+        p { font-size: $carousel-caption-font-size; }
+        h1 { color: $carousel-caption-color; }
+        h1:after { display: none; }
+
+        @include respond-to('grid large') {
+            width: 40%;        
+            @if ($carousel-caption-box-position == 'left') {
+                left: 15%;
+                right: auto;
+            }
+            @else {
+                right: 15%;
+                left: auto;
+            }              
+        }  
+        @include respond-to('grid small') {       
+            width: 100%;
+            position: static;
+            margin: 0 auto;
+        }       
+    }
+}
+
+.Wrapper-HomePage .header {
+    min-height: $jumbotron-home-height;
+}
+
+.Wrapper-HomePage .header-background-container {
+    background-color: $color-neutral; /* fall back to make the header dark in case the carousel does not load */
+}
+
+
+.Wrapper-HomePage .header-background-container:before {
+    content: '';
+    display: block;
+    @include gradient-y(rgba(0,0,0,0.5), rgba(0,0,0,0), 0, 100%);
+    height: 6em;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.Wrapper-HomePage .header-background-container .ContentItemContainer > .ContentItemContainer {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: $color-base;
+    background: $color-base linear-gradient(27deg, $color-neutral 0%, $color-base 30%, $color-secondary-a 100%);
+    .bg-img-full-size {
+        mix-blend-mode: multiply;
+    }
+}
+
+.Wrapper-HomePage .home-page-header-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+.hero-caption, .carousel-caption {
+    background-color: transparent;
+    text-align: center;
+
+    h1 {
+        font-size: 3.5rem;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+
+        .text-large {
+            display: block;
+            margin-top: 1rem;
+            font-size: 5rem;
+        }
+    }
+
+    p.lead {
+        font-size: 1.8rem;
+        line-height: 1.5;
+    }
+
+    @include respond-to('grid large') {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: $container-lg;
+
+        h1 {
+            font-size: 5rem;
+            .text-large { font-size: 6.5rem; }
+        }
+
+        p.lead { font-size: 2rem; }
+    }
+
+    @include respond-to('desktops and up') {
+        h1 {
+            font-size: 7rem;
+
+            .text-large { font-size: 8.8rem; }
+        }
+
+        p.lead { font-size: 2.8rem; }
+    }
+}
+
+.carousel-hero-dark .carousel-caption,
+.hero-dark .hero-caption {
+    &, h1, h2, h3, h4, h5 {
+        color: $white;
+    }
+
+    a:not(.TextButton) {
+        color: $white;
+        text-decoration: underline;
+    }
+}
+
+
+
+.header-display-page-title header.header {
+    .internal-header-container {
+        align-self: center;
+        text-align: center;
+
+        .header-title-banner {
+            padding-top: 3em;
+            padding-bottom: 3em;
+            background-repeat: no-repeat;
+            background-position: 50% 10%;
+            background-size: 200px;
+            min-height: 200px /* to accomodate the background */
+        }
+
+        .lead { 
+            max-width: 20em; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @include respond-to('tablets and up') {
+            padding-top: 4em;
+            padding-bottom: 4em;
+            h1 { font-size: 4em; }
+        }
+
+        @include respond-to('desktops and up') {
+            padding-top: 5em;
+            padding-bottom: 5em;
+            h1 { font-size: 5.5em; }
+            .lead { font-size: 2em; }
+        }
+    }
+}
+
+.interior-img-splash {
+    display: grid;
+    align-items: end;
+
+    .img-primary-container,
+    .img-secondary-container,
+    .splash-text {
+        grid-column: 1;
+        grid-row: 1;
+        max-height: 70vh;
+    }
+
+    .img-inner {
+        width: 100%;
+        height: 100%;
+    }
+
+    .splash-text {
+        z-index: 3;
+        padding: $panel-body-padding;
+        color: $white;
+
+        h2 {
+            color: $white;
+        }
+    }
+
+    @include respond-to('grid small') {
+        .img-secondary-container {
+            display: none;
+        }
+    }
+
+    @include respond-to('grid large') {
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: 2fr auto 1fr;
+        align-items: start;
+        img {
+            @include img-object-fit-container();
+        }
+
+        .img-primary-container {
+            grid-column: 1 / span 2;
+            grid-row: 1 /span 2;
+            width: 100%;
+            height: 100%;
+        }
+
+        .img-secondary-container {
+            grid-column: 2 / span 2;
+            grid-row: 2 / span 2;
+            width: 100%;
+            height: 100%;
+        }
+
+        .splash-text {
+            grid-column: 1 / span 3;
+            grid-row: 2;
+            margin-left: 8em;
+            margin-top: 3em;
+
+            h2 {
+                font-size: 2.8em;
+
+                span {
+                    font-size: 115%;
+                }
+            }
+
+            .lead {
+                font-size: 2em;
+            }
+        }
+    }
+}
+
+.parallax-container {
+    position: relative;
+
+    .js-parallax-up {
+        position: absolute;
+    }
+}

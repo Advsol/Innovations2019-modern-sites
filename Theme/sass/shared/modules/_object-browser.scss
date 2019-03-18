@@ -1,0 +1,25 @@
+﻿/* ==========================================================================
+   OBJECT BROWSER
+   ========================================================================== */
+.ObjectBrowserWrapper,
+.TagBrowserWrapper {
+    background-color: #fff;
+}
+.OBNavIcon {
+    @include vertical-align(24px, $input-height-base, 'padding');
+}
+.ObjectBrowserContentList td {
+    padding-top: 1px;
+    padding-bottom: 0;
+}
+.ObjectBrowserContentListName {
+    line-height: 2;
+}
+.ObjectBrowserIcon {
+    background-position: 0 6px;
+}
+
+.ObjectBrowserContentItem {
+    &.hover, &:hover, &:focus { background-color: $hover-highlight; }
+    &.selected, &:active { background-color: $selected-highlight; }
+}

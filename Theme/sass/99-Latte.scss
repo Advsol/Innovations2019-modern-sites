@@ -1,0 +1,52 @@
+﻿/* Responsive NaturalHeritage theme */
+
+// Core variables and mixins
+@import "breakpoint"; // Sass plugin used to generate responsive media queries
+@import "functions";
+@import "mixins";
+
+@import "Coffee/variables/variables_Latte";
+// import base variables after theme variables so calculations of dependent variables
+// are based on the theme's variable settings
+@import "variables";
+@import "breakpoint-setup";
+
+// Master page layout
+@import "Coffee/layouts/coffee-mp";
+
+// Typography and other basic setup
+@import "shared/basics";
+@import "shared/animations";
+@import "shared/animate-on-scroll";
+
+// Master page elements
+@import "shared/masterpage_styles";
+@import "Coffee/navigation/footer";
+
+// Navigation controls
+@import "Coffee/navigation/primary";
+@import "Coffee/navigation/secondary";
+@import "Coffee/navigation/auxiliary";
+
+// Other components
+@import "shared/icon_sprite";
+@import "shared/forms";
+@import "shared/buttons_flat";
+@import "shared/modules/other-iParts";
+@import "shared/modules/mini-profile";
+@import "shared/modules/search";
+@import "shared/modules/events-products";
+@import "shared/modules/progress-tracker";
+@import "shared/modules/query-menu";
+@import "shared/modules/cart-charges";
+@import "Coffee/telerik_overrides";
+@import "Coffee/jumbotron";
+@import "shared/modules/communities";
+@import "shared/donor_site";
+@import "shared/filters";
+@import "Coffee/misc";
+@import "shared/panel_callouts";
+@import "shared/dashboards";
+
+// Skin-specific styles
+@import "Coffee/Latte";

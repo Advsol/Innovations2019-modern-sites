@@ -1,0 +1,133 @@
+﻿/* Mini Profile
+   ========================================================================== */
+.mini-profile-banner-large .panel-heading,
+.mini-profile-banner-small .panel-heading,
+.account-page-with-banner .account-page-top-area.account-page-top-area {
+    background-color: $mini-profile-banner-bg;
+}
+
+.mini-profile-banner-large,
+.mini-profile-banner-small {
+    .panel-heading {
+        &, h1, h2, h3, h4, h5 {
+            color: color-yiq($mini-profile-banner-bg);
+        }
+    }
+
+    a {
+        &, &:hover, &:active, &:visited {
+            color: $text-color;
+            text-decoration: underline;
+        }
+    }
+
+    .mini-profile-name-section .SectionLabel {
+        /* Style the name like an h2 */
+        font-family: $headings-font-family;
+        font-weight: $headings-font-weight;
+        font-size: $h2-font-size;
+    }
+
+    .mini-profile-picture-section {
+        background-color: $mini-profile-banner-bg;
+    }
+
+    .profile-picture-container {
+        display: inline-block;
+        background-color: $white;
+        box-shadow: $box-shadow-base;
+        padding: 8px;
+        border-radius: 5px;
+
+        img {
+            border-radius: 3px;
+        }
+    }
+
+    @if ($mini-profile-banner-border-bottom != null and $mini-profile-banner-border-bottom != 'none') {
+        .mini-profile-picture-section {
+            border-bottom: $mini-profile-banner-border-bottom;
+        }
+    }
+}
+
+.mini-profile-banner-large {
+    @include respond-to('tablets and up') {
+        .mini-profile-name-section,
+        .mini-profile-address-section {
+            background-color: $mini-profile-banner-bg;
+
+            &, a, .SectionLabel, label, .Label {
+                color: color-yiq($mini-profile-banner-bg);
+            }
+        }
+        @if ($mini-profile-banner-border-bottom != null and $mini-profile-banner-border-bottom != 'none') {
+            .mini-profile:after {
+                /* because we're not sure if the name or address will be the last
+                    section of the right column, need to add the border in this weird way
+                */
+                content: '';
+                border-bottom: $mini-profile-banner-border-bottom;
+                grid-column: address;
+                grid-row: address;
+                align-self: end;
+                z-index: 1;
+            }
+        }
+    }
+}
+
+
+@if ($theme-family == 'Constellation'){
+    // styles to make the banner extend all the way to the top in the Staff site only
+    /* Account page banner
+   ========================================================================== */
+    .account-page-with-banner {
+        .user-message-area,
+        .account-page-top-area {
+            @include clearfix();
+            margin-top: -$grid-gutter-width/2;
+            margin-left: -$grid-gutter-width/2;
+            margin-right: -$grid-gutter-width/2;
+            padding-top: $grid-gutter-width/2;
+            padding-left: $grid-gutter-width/2;
+            padding-right: $grid-gutter-width/2;
+            background-color: $mini-profile-banner-bg;
+        }
+
+        .mini-profile-banner-large,
+        .col-sm-12 .mini-profile-banner-small {
+            /* assume the large banner is always full width, 
+                small banner is full width when in a col-12 row
+            */
+            margin-left: -$grid-gutter-width/2;
+            margin-right: -$grid-gutter-width/2;
+
+            .mini-profile-picture-section {
+                padding-left: $panel-body-padding;
+            }
+        }
+
+        &.EasyEditOn .mini-profile-banner-large,
+        &.EasyEditOn .mini-profile-banner-small,
+        &.EasyEditOn .ContentItemContainer > .account-page-top-area {
+            /* to get rid of the gap created by the easy edit borders */
+            margin-left: -$grid-gutter-width/2 - 1px;
+            margin-right: -$grid-gutter-width/2 - 1px;
+            margin-top: -1px;
+        }
+
+        .account-page-top-area {
+            .panel-heading.Distinguish {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .panel-body {
+                padding: 0;
+            }
+
+            margin-bottom: -.9em;
+        }
+    }
+}

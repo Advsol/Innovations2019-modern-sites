@@ -1,0 +1,50 @@
+﻿/* Progress Tracker
+   ========================================================================== */
+/* These are overrides for the colors and styles defined in 10-UltraWave.css */
+/* <Progress Tracker (Default)> */
+.ProgressTracker {
+    .count {
+        font-weight: bold;
+    }
+
+    .SuccessfulMessage, 
+    .ProgressBar > span {
+        background-color: $color-base;
+    }
+}
+
+/* </Progress Tracker > */
+
+/* <Progress Tracker 2> */
+.ProgressTracker2 {
+    .ProgressTrackerPanel {
+        background-color: $hover-highlight;
+        @include clearfix;
+
+        .count {
+            color: $white;
+            font-family: $headings-font-family;
+            font-weight: $headings-font-weight;
+        }
+    }
+
+    div p {
+        background-color: $body-bg;
+        color: $color-secondary-a;
+        margin-bottom: 0;
+    }
+
+    .ProgressBar {
+        margin: 10px;
+
+        > span {
+            background-color: hsl(hue($color-callout), 60%, 65%);
+        }
+    }
+    
+    .SuccessfulMessage {
+        background-color: lighten(desaturate($color-secondary-a, 10%), 25%);
+        color: $text-color;
+    }
+}
+/* </Progress Tracker 2> */

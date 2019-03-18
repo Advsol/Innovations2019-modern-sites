@@ -1,0 +1,46 @@
+﻿/* Alt background colors
+   ========================================================================== */
+.AltBgColor1 {
+    background-color: $color-alt-bg;
+    padding: $panel-body-padding;
+}
+
+@mixin panel-color-bg($bg-color) {
+    > .panel {
+        background-color: $bg-color;
+
+        &.panel-border {
+            border-color: darken($bg-color, 5%);
+        }
+
+        &, h2 {
+            color: color-yiq($bg-color);
+        }
+
+        a, a:hover, a:active, a:focus, a:visited {
+            color: color-yiq($bg-color);
+            text-decoration: underline;
+        }
+
+        .ProgressBar > span {
+            /* Make the progress tracker indicator use a white bar instead of default */
+            background-color: color-yiq($bg-color);
+        }
+    }
+}
+
+.AltBgColor2 {
+    @include panel-color-bg($color-asi-teal);
+}
+
+.AltBgColor3 {
+    @include panel-color-bg($color-callout);
+}
+
+.AltBgColor4 {
+    @include panel-color-bg($color-asi-orange);
+}
+
+.AltBgColor5 {
+    @include panel-color-bg($color-asi-purple);
+}

@@ -1,0 +1,10 @@
+﻿// From Bootstrap 4.1.0
+
+// Clearfix
+@mixin clearfix() {
+    &::after {
+        display: block;
+        clear: both;
+        content: "";
+    }
+}

@@ -1,0 +1,10 @@
+﻿// From iMIS 20.3
+
+// Vertical align any element
+// -------------------------
+// Vertically center any element within a container
+// (Please use sparingly :)
+@mixin vertical-align($element-height, $container-height, $type: margin) {
+    #{$type}-top: (($container-height - $element-height) / 2);
+    #{$type}-bottom: (($container-height - $element-height) / 2);
+}

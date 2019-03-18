@@ -1,0 +1,264 @@
+﻿// VARIABLES
+// --------------------------------------------
+
+// GLOBAL ELEMENTS
+// --------------------------------------------
+$theme-family:          Coffee !default;
+$theme-name:            Latte !default;
+$view-type:             Responsive !default;
+
+// Sprites
+// -------------------------
+$sprite-path-default:       '../../assets/images/IconSprite.png' !default;
+
+
+// Color Palette
+// -------------------------
+$color-base:                #118ab2 !default;
+$color-callout:             #ef475e !default; 
+$color-secondary-a:         #fdc542 !default;
+$color-secondary-b:         #06d6a0 !default;
+
+$color-neutral:             #073b4c !default;
+$color-alt-bg:              #f2f2f2!default; 
+$color-alt-bg2:             #cab9ac;
+
+$color-base-light:          change-color($color-base, $alpha: 0.5, $lightness: 60%) !default;
+$hover-highlight:           $color-base-light !default;
+
+// Social colors
+$color-facebook:            #3B5998 !default;
+$color-linkedin:            #0077B5 !default;
+
+
+// Scaffolding
+// -------------------------
+$grid-gutter-width:     30px !default;
+$container-lg:          1240px + $grid-gutter-width !default;
+$border-style:          solid !default;
+
+// Links
+// -------------------------
+$link-color:            $color-base !default;
+
+// Typography
+// -------------------------
+$font-family-base:      'Nunito Sans', Century Gothic, Arial, sans-serif !default;
+$font-size-base:        16px !default;
+$line-height-base:      1.6 !default;
+$line-height-computed:  floor($font-size-base * $line-height-base) !default;
+$text-color:            #333 !default;
+
+$headings-font-family:  'Rubik', Century Gothic, Arial, sans-serif !default; 
+$headings-font-weight:  700 !default;
+$headings-color:        $color-callout !default;
+
+@import url('//fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700|Rubik:400,500,700');
+
+$h1-font-size:          280% !default;
+$h2-font-size:          170% !default;
+$h3-font-size:          145% !default;
+$h4-font-size:          130% !default;
+$h5-font-size:          105% !default;
+$h6-font-size:          90% !default;
+
+// Components
+// -------------------------
+$padding-base-vertical:          5px !default;
+$padding-base-horizontal:        10px !default;
+
+$border-radius-base:             5px !default;
+$border-radius-large:            8px !default;
+$border-radius-small:            3px !default;
+$component-active-color:         #fff !default;
+$component-active-bg:            $color-secondary-b !default;
+
+
+// Forms
+// -------------------------
+$input-height-base:             ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
+
+
+// Buttons 
+// -------------------------
+$btn-style:                     'flat' !default;
+$btn-padding-horizontal:        15px;
+$btn-border-radius:             25px;
+$btn-default-color:             #fff !default; 
+$btn-default-bg:                $color-base;
+$btn-default-border:            transparent !default;
+$btn-default-shadow:            0 5px 10px rgba(0, 0, 0, 0.25) !default;
+
+$btn-primary-color:             #fff;
+$btn-primary-bg:                $color-callout;
+$btn-primary-border:            transparent !default;
+$btn-primary-shadow:            $btn-default-shadow !default;
+
+$btn-facebook-border:           darken($color-facebook, 10%) !default;
+$btn-linkedin-border:           darken($color-linkedin, 10%) !default;
+
+
+// Navbar
+// -------------------------
+$navbar-top-height:                        50px !default;
+$navbar-height:                            105px !default;
+$navbar-internal-height:                   45px !default;
+$navbar-horizontal-alignment:              right; /* left, center, right */
+$navbar-padding-vertical:                  8px !default;
+
+$navbar-default-color:                     lighten($text-color, 30%) !default;
+$navbar-default-bg:                        $color-alt-bg !default;
+$navbar-default-link-hover-color:          #fff !default;
+$navbar-default-link-hover-bg:             fade-out($color-base, .1) !default;
+$navbar-default-link-active-color:         $text-color !default;
+$navbar-default-link-active-bg:            transparent !default;
+$navbar-default-link-disabled-color:       #999 !default;
+$navbar-default-link-disabled-bg:          transparent !default;
+$navbar-default-link-weight:               500 !default;
+$navbar-default-link-letter-spacing:       1px !default;
+$navbar-default-link-font-size:            125% !default;
+$navbar-default-link-font-family:          $headings-font-family !default;
+
+$navbar-alt-color:                         #fff !default;
+$navbar-alt-bg:                            #222 !default;
+$navbar-alt-link-hover-color:              $navbar-default-link-hover-color !default;
+$navbar-alt-link-hover-bg:                 $navbar-default-link-hover-bg !default;
+$navbar-alt-link-active-color:             #fff !default;
+$navbar-alt-link-active-bg:                $navbar-default-link-active-bg !default;
+$navbar-alt-link-disabled-color:           #dedede !default;
+$navbar-alt-link-disabled-bg:              transparent !default;
+$navbar-alt-link-weight:                   $navbar-default-link-weight !default;
+$navbar-alt-link-letter-spacing:           $navbar-default-link-letter-spacing !default;
+$navbar-alt-link-font-size:                $navbar-default-link-font-size !default;
+$navbar-alt-link-font-family:              $navbar-default-link-font-family !default;
+
+$navbar-default-dropdown-bg:                    $navbar-default-link-hover-bg !default;
+$navbar-default-dropdown-link-color:            $navbar-default-link-hover-color !default;
+$navbar-default-dropdown-header-color:          $navbar-default-dropdown-link-color !default;
+$navbar-default-dropdown-link-hover-bg:         transparent !default;
+$navbar-default-dropdown-link-hover-color:      #ddd !default;
+$navbar-default-dropdown-link-active-bg:        $navbar-default-dropdown-link-hover-bg !default;
+$navbar-default-dropdown-link-active-color:     $navbar-default-dropdown-link-hover-color !default;
+$navbar-default-dropdown-link-disabled-color:   $navbar-default-dropdown-link-color !default;
+$navbar-default-dropdown-link-font-family:      $font-family-base !default;
+$navbar-default-dropdown-link-font-size:        114% !default;
+$navbar-default-dropdown-link-font-weight:      normal !default;
+
+$navbar-alt-dropdown-bg:                        $navbar-alt-link-hover-bg !default;
+$navbar-alt-dropdown-link-color:                $navbar-alt-color !default;
+$navbar-alt-dropdown-header-color:              $navbar-alt-dropdown-link-color !default;
+$navbar-alt-dropdown-link-hover-bg:             transparent !default;
+$navbar-alt-dropdown-link-hover-color:          $navbar-alt-link-hover-color !default;
+$navbar-alt-dropdown-link-active-bg:            $navbar-alt-dropdown-link-hover-bg !default;
+$navbar-alt-dropdown-link-active-color:         $navbar-alt-dropdown-link-hover-color !default;
+$navbar-alt-dropdown-link-disabled-color:       $navbar-alt-link-disabled-color !default;
+$navbar-alt-dropdown-link-font-family:          $navbar-default-dropdown-link-font-family !default;
+$navbar-alt-dropdown-link-font-size:            $navbar-default-dropdown-link-font-size !default;
+$navbar-alt-dropdown-link-font-weight:          $navbar-default-dropdown-link-font-weight !default;
+
+$navbar-auxiliary-link-color:              $text-color !default;
+$navbar-auxiliary-font-size:               1em !default;
+$navbar-auxiliary-btn-bg:                  change-color(#fff, $alpha: 0.8)!default;
+$navbar-auxiliary-btn-hover-bg:            #fff !default;
+
+$navbar-alt-auxiliary-link-color:          #fff!default;
+$navbar-alt-auxiliary-btn-bg:              change-color(#fff, $alpha: 0.7)!default;
+$navbar-alt-auxiliary-btn-hover-bg:        #fff !default;
+
+
+// Callout link
+$navbar-feature-link-color:                #fff !default;
+$navbar-feature-link-bg:                   $color-callout !default;
+
+// Mobile buttons
+$navbar-toggle-border-radius:              $border-radius-base !default;
+$navbar-toggle-margin-left:                5px !default;
+$navbar-default-toggle-bg:                 transparent !default;
+$navbar-default-toggle-hover-bg:           change-color($color-neutral, $alpha: 0.1) !default;
+$navbar-default-toggle-active-bg:          $navbar-default-link-hover-bg !default;
+$navbar-default-toggle-icon-bar-bg:        $text-color !default;
+$navbar-default-toggle-border-color:       transparent !default;
+
+$navbar-alt-toggle-bg:                     transparent !default;
+$navbar-alt-toggle-hover-bg:               change-color(#fff, $alpha: 0.1) !default;
+$navbar-alt-toggle-active-bg:              $navbar-default-toggle-active-bg !default;
+$navbar-alt-toggle-icon-bar-bg:            #fff !default;
+$navbar-alt-toggle-border-color:           transparent !default;
+
+
+
+// Navs
+// -------------------------
+
+// Secondary (internal)
+$nav-secondary-header-bg:                   $color-base !default;
+$nav-secondary-header-color:                #fff !default;
+$nav-secondary-bg:                          transparent !default;
+$nav-secondary-hover-bg:                    $hover-highlight !default;
+$nav-secondary-hover-color:                 $text-color !default;
+$nav-secondary-font-weight:                 normal !default;
+$nav-secondary-link-color:                  $link-color !default;
+$nav-secondar-divider-bg:                   $nav-secondary-header-bg !default;
+
+// Cart icon
+//-------------------------
+$cart-count-color:              #fff !default;
+$cart-count-bg:                 $color-callout !default;
+
+// Communities
+// -------------------------
+$communities-nav-hover-bg:          $hover-highlight !default;
+$communities-nav-select-bg:         $component-active-bg !default;
+$communities-link-hover-bg:         $communities-nav-select-bg !default;
+$communities-alt-bg:                hsl(hue($color-neutral), saturation($color-neutral), 95%) !default;
+
+// CalloutPanelFields
+// -------------------------
+$callout1-bg:                        #222122 !default;
+
+
+// Logo 
+// -------------------------
+$logo-default-position-md:          0 0 !default;
+$logo-default-width-sm:             50px !default;
+$logo-default-height-sm:            46px !default;
+$logo-default-width-md:             250px !default;
+
+$logo-donor-url:                    url('images/DonorHeaderLogo.png') !default;
+$logo-donor-position-md:            null !default;
+$logo-donor-width-md:               169px !default;
+
+// Jumbotron
+// -------------------------
+$jumbotron-background-url:          url(images/HomeBanner.jpg) !default;
+$jumbotron-h1-size-xs:              200% !default;
+$jumbotron-h1-size:                 250% !default;
+
+$jumbotron-home-height:             100vh !default;
+$jumbotron-home-background-color:   #188dc1 !default;
+
+// Carousel
+// -------------------------
+$carousel-caption-color:            $text-color !default;
+$carousel-caption-text-alignment:   left !default;
+$carousel-caption-bg-color:         rgba($color-base, 0.8) !default;
+$carousel-caption-font-family:      $headings-font-family !default;
+$carousel-caption-font-size:        $font-size-base +2 !default;
+$carousel-caption-box-position:     left !default; /*right, left*/
+$carousel-caption-box-bottom-padding: 1em !default;
+
+// Footer
+// -------------------------
+$footer-top-color:          #fff; //$text-color !default;
+$footer-top-link-color:     #fff; //$footer-top-color !default; /*hsl(hue($link-color), saturation($link-color), 80%) !default;*/
+$footer-top-bg:             $text-color; //$color-alt-bg !default;
+$footer-top-h1-color:       #fff; //$text-color !default;
+
+//$footer-bottom-color:        $text-color !default;
+//$footer-bottom-link-color:   $footer-bottom-color !default;
+//$footer-bottom-bg:           $color-alt-bg !default;
+
+// Telerik controls
+// --------------------------
+$radmenu-bg:                $color-base !default;
+$radwindow-header-bg:       $color-base !default;

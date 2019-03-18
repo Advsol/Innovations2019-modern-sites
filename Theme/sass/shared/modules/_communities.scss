@@ -1,0 +1,61 @@
+﻿/* ==========================================================================
+   COMMUNITIES
+   ========================================================================== */
+
+/* Community left nav */
+.CommunityLinksBlock a {
+    color: $communities-nav-color;
+    &:hover {
+        background-color: $communities-nav-hover-bg;
+        color: $communities-nav-color;
+        text-decoration: none;
+    }
+    &.CommunityLinksSelected, 
+    &.CommunityLinksSelected:hover {
+        background-color: $communities-nav-select-bg;
+        color:White;
+        font-weight:bold;
+        text-decoration: none;
+    }
+}
+
+/* Community breadcrumb */
+.BreadCrumbCurrent {
+    font-size:120%;
+    font-weight:bold;
+}
+
+/*** Communities common elements ***/
+.CommunityItemActionLinks a:hover {
+    background-color: $communities-link-hover-bg;
+}
+
+.CommunityItemTitle {
+    font-size: 110%;
+    padding: .25em 0;
+}
+
+@if ($border-radius-base > 0) {
+    .CommunityProfilePicture img {
+        border-radius: $border-radius-base;
+    }
+}
+
+.CommunityReplyForm,
+.CommunityCommentItem {
+    background: $communities-alt-bg;
+    border-left: 10px solid $border-color;
+    //padding: .5em .5em .2em .5em;
+    //margin-left: 3em;
+    @include box-shadow($box-shadow-base);
+}
+
+.CommunityWikiItem .CommunityRepeaterList .CommunityCommentItem {
+    background: $communities-alt-bg;
+}
+
+/* For adding comments */
+.CommunityWikiReplyForm {
+    background: $communities-alt-bg;
+    @include box-shadow($box-shadow-base);
+}

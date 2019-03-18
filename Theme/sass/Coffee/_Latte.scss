@@ -1,0 +1,180 @@
+﻿/* ==========================================================================
+   LATTE-SPECIFIC STYLES
+   ========================================================================== */
+
+
+// Homepage animations
+// -------------------------
+.Wrapper-HomePage {
+    @include respond-to('grid large') {
+        .header-background-container .ContentItemContainer > .ContentItemContainer {
+            animation: appear-zoom-out-with-delay 2s ease-in-out;
+        }
+        .header-logo-container,
+        .header-aux-container,
+        .header-primary-nav-container {
+            animation: slide-down-with-delay 1s ease-out;
+        }
+        .hero{
+            animation: appear-zoom-in-with-delay 1s ease-in-out;
+        }
+        .home-post-header .post-header-first {
+            animation: slide-up-with-delay 1s ease-in-out;
+        }
+    }
+    
+}
+
+// Navigation
+// -------------------------
+.header-logo svg {
+    display: block;
+    height: 40px;
+    max-width: 100%;
+    fill: $color-neutral;
+}
+
+.header-logo.demo-donor-logo svg {
+    .logo-mark { fill: $color-secondary-b; }
+    &:hover, &:focus { 
+        .logo-part1 path { fill: $color-secondary-b; }
+        .logo-part2 path { fill: $color-secondary-a; }
+    }
+
+    @include respond-to('smartphones and down') {
+        .logo-part1, .logo-part2 { display: none; }
+    }
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo svg {
+    max-width: 10em;
+
+    path { fill: $footer-top-color; }
+    &:hover .logo-mark { fill: $color-secondary-b; }
+}
+
+// TELERIK overwrites 
+// -------------------------
+
+/* Search Results */
+.SearchResultSummary .ListItemTitle a {
+    background: none!important;
+}
+
+/* RadStrip Tabs */
+.RadTabStrip_MetroTouch.RadTabStrip_MetroTouch {
+
+    &.RadTabStripTop .rtsLevel1 {
+        border-bottom: 1px solid #ddd;
+    }
+
+    &.RadTabStripBottom .rtsLevel1 {
+        border-top: 1px solid #ddd;
+    }
+
+    .rtsLevel1 .rtsSelected {
+        background-color: $color-base;
+        border-color: $color-base;
+        color: GetBestContextualTextColor($color-base);
+        text-decoration: none !important;
+
+        .tab-step-number {
+            color: GetBestContextualTextColor(darken($color-base, 10%));
+            background-color: darken($color-base, 10%);
+        }
+    }
+
+    & .rtsLevel1 .rtsLink:hover {
+        text-decoration: none !important;
+        color: GetBestContextualTextColor($hover-highlight);
+        background-color: $hover-highlight !important;
+    }
+
+    @include respond-to('tablets and up') {
+        &.RadTabStripLeft .rtsLevel1 .rtsLink {
+            border-right-width: 0;
+        }
+
+        &.RadTabStripRight .rtsLevel1 .rtsLink {
+            border-left-width: 0;
+        }
+    }
+
+    &.RadTabStripVertical {
+        @include respond-to('smartphones and down') {
+            border-bottom: 1px solid #ddd;
+
+            .rtsLevel1 .rtsLink {
+                border-width: 1px 1px 0 1px;
+            }
+        }
+
+        @include breakpoint(601px $screen-xs-max, $no-query: $no-query-mobile) {
+            .rtsLevel1 {
+                float: left;
+
+                .rtsLink {
+                    margin-left: -1px;
+                }
+
+                .rtsFirst .rtsLink {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        @include respond-to('smartphones and up'){
+            .account-page-with-banner .wrapper.has-secondary-col & {
+                .rtsLink {
+                    border-width: 1px;
+                }
+                .rtsLI {
+                    margin-right: -1px;
+                }
+            }
+        }
+        
+    }
+}
+
+h2, .h2, .PanelHead.Distinguish, 
+.TitleBarCaption, div.PanelTitle, 
+.panel-heading.Distinguish { border: none!important; }
+
+
+// Account Mini Profile
+// -------------------------
+.CalloutPart2 { 
+    background-color: $color-alt-bg; 
+}
+.AccountMiniProfile {
+    text-align: center; 
+
+    .PanelField:not(.Left) .PanelFieldValue,
+    .PanelField:not(.Left) .Label { 
+        width: 100%!important; 
+        text-align: center; 
+    }    
+}
+
+.AsiInformation, .AsiSuccess, .AsiWarning, 
+.AsiError, .AsiValidation, .AsiValidationSummary, 
+.AsiNeutral { border: none; }
+
+
+// Other 
+// -------------------------
+.RadGrid.RadGrid_MetroTouch, .RadGrid.RadGrid_Metro {
+    .rgNumPart a.rgCurrentPage, .rgNumPart a.rgCurrentPage:hover, 
+    .rgPagePrev:active, .rgPageNext:active, 
+    .rgPageFirst:active, .rgPageLast:active, 
+    .rgPager .rgPagerButton {
+        background-color: $color-secondary-a!important;
+        border-color: $color-secondary-a!important;
+    }
+}

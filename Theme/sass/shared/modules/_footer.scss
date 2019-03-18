@@ -1,0 +1,204 @@
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer-nav-copyright {
+    padding-top: 1em;
+    padding-bottom: 0.35em; /* 1em - .65em (bottom margin on nav lis) */
+}
+
+.footer-content {
+    padding-top: 1em;
+}
+
+.footer-content-section {
+    padding: 0 ($grid-gutter-width / 2) 1em;
+}
+
+.footer-nav-copyright {
+	@if ($theme-name =='Toronto') {
+		.NavigationUnorderedList {
+			text-align: center;
+			display: block;
+		}
+	}
+	
+    @include clearfix();
+    .NavigationUnorderedList, 
+    .footer-copyright {
+        @if ($theme-name !='Toronto') {
+			float: left;
+        }
+        margin: 0;
+    }
+    .footer-copyright {
+        @if ($theme-name !='Toronto') {
+			display: inline-block;
+			margin: 0 1.5em .65em 0;
+		}
+    }
+	.footer-social-copyright {
+		@include respond-to('smartphones and down') {
+			text-align: center;
+		}
+
+		.footer-social, 
+		.footer-copyright {
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		@include respond-to('tablets and up') {
+			.footer-social {
+				text-align: left;
+			}
+			.footer-copyright {
+				float: right;
+				width: auto;
+				clear: right;
+			}
+		}
+	}
+}
+
+.footer-copyright p {
+    margin-bottom: 0;
+}
+
+
+.footer-content-section {
+    @include respond-to('smartphones and up') {
+        float: left;
+        width: 50%;
+    }
+}
+
+.footer {
+    @include respond-to('tablets and up') {
+        .footer-social {
+            width: percentage((1 / 3));
+        }
+
+        .footer-promo-container {
+            width: percentage((2 / 3));
+        }
+    }
+}
+
+#masterFooterCopyright {
+    clear: both;
+}
+
+
+.footer-content {
+    background-color: $footer-top-bg;
+    color: $footer-top-color;
+    text-align: center;
+
+    h2 {
+        margin-top: 0;
+        color: $footer-top-color;
+        border-bottom: none;
+    }
+
+    a {
+        color: $footer-top-link-color;
+    }
+}
+
+.footer-social {
+    padding-top: $grid-gutter-width / 2;
+
+    a {
+        margin-right: .5em;
+    }
+}
+
+$ad-bg: darken($footer-top-bg, 25%);
+
+.footer-promo-container {
+    .promo {
+        background-color: $ad-bg; /* rgba fallback */
+        background-color: rgba($ad-bg, .5);
+        padding: $grid-gutter-width / 2;
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.075), 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    
+    .lead {
+        font-family: $headings-font-family;
+        font-weight: $headings-font-weight;
+        margin-bottom: .25em;
+        font-size: 130%;
+        line-height: inherit;
+
+        @include respond-to('tablets only') {
+            font-size: 150%;
+        }
+        @include respond-to('desktops and up') {
+            font-size: 170%;
+        }
+    }
+
+    .TextButton {
+        background-color: $ad-bg; /* rgba fallback */
+        background-color: rgba($ad-bg, .5);
+        color: #fff;
+
+        &:hover {
+            background-color: $ad-bg; /* rgba fallback */
+            background-color: rgba($ad-bg, .8);
+        }
+    }
+}
+
+.footer-nav-copyright {
+    background-color: $footer-bottom-bg;
+    color: $footer-bottom-color;
+    a, a:visited {
+        color: $footer-bottom-link-color;
+    }
+    a:hover, a:active {
+        color: lighten($footer-bottom-link-color, 10%);
+    }
+}
+
+/* Compatibility Footer
+   ========================================================================== */
+/* Old-style footer (pre-responsive) */
+
+#ft {
+    background-color: $footer-top-bg;
+    color: $footer-top-color;
+
+    h4 {
+        color: $footer-top-color;
+        font-family: $headings-font-family;
+        font-weight: $headings-font-weight;
+    }
+}
+
+#masterFooterConnectWithUs {
+    border-style: $border-style;
+    border-color: rgba($border-color, .8);
+    border-width: 0 1px;
+}
+
+#masterFooterContent, 
+#masterFooterCopyright,
+#masterFooterNavigation {
+    a {
+        color: $footer-top-link-color;
+
+        &:visited {
+            color: $footer-top-link-color;
+        }
+        
+        &:hover, &:active {
+            color: darken($footer-top-link-color, 10%);
+        }
+    }
+}
+
+#masterFooterCopyright {
+    border-color: $border-color; /* rgba fallback */
+    border-top: 1px solid rgba($border-color, .5);
+}

@@ -1,0 +1,279 @@
+﻿/* ==========================================================================
+   DONOR SITE STYLES
+   ========================================================================== */
+
+.home-post-header {
+    margin-top: -1em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: $color-alt-bg;
+    background-repeat: no-repeat;
+    background-position: 78% 98%;
+    background-size: 200px;
+
+    .post-header-first,
+    .post-header-last {
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .post-header-first {
+        min-height: 70vh;
+    }
+
+    .post-header-inner p:last-child {
+        margin-bottom: 0;
+    }
+
+    @include respond-to('grid large') {
+        flex-direction: row;
+        flex-direction: row-reverse;
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-bottom: 4em;
+        background-position: 40% 90%;
+        background-size: 300px;
+
+        .post-header-first {
+            flex-basis: 38%;
+            min-height: 80vh;
+            margin-top: -7em;
+            padding: 3em;
+            margin-bottom: 7em;
+
+            .post-header-inner {
+                min-width: 16em;
+                max-width: 28em;
+            }
+
+            h2 {
+                line-height: 1.2;
+            }
+        }
+
+        .post-header-last {
+            flex-basis: 40%;
+            justify-content: flex-end;
+            align-items: flex-end;
+            margin-right: 2em;
+
+            .post-header-inner {
+                max-width: 30em;
+            }
+        }
+    }
+
+    @include breakpoint($screen-lg-min) {
+        .post-header-first h2 {
+            font-size: 3.25em;
+        }
+
+        .post-header-last {
+            margin-right: 6em;
+        }
+    }
+}
+
+@keyframes wiggle {
+  0% {transform: rotate(10deg);}
+  25% {transform: rotate(-10deg);}
+  50% {transform: rotate(20deg);}
+  75% {transform: rotate(-5deg);}
+  100% {transform: rotate(0deg);}
+}
+
+.grid-feature-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .grid-feature-item {
+        padding: $panel-body-padding;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        color: white;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: fade-out($color-neutral, .6);
+            background-image: url('images/topography.svg');
+            background-blend-mode: soft-light;
+            mix-blend-mode: darken;
+            transition: opacity .4s ease-out;
+            filter: contrast(1.3);
+            
+        }
+        &:hover:before { opacity: .4; }
+
+        h3 {
+            color: white;
+            margin-top: .25em;
+            margin-bottom: .25em;
+            //font-size: 2em;
+        }
+
+        .item-description {
+            z-index: 2;
+        }
+
+        &.item-2:before {
+            background-color: fade-out($color-secondary-a, .4);
+            mix-blend-mode: multiply;
+        }
+
+        &.item-3 {
+            /* This is the callout item */
+            background-color: $color-callout;
+
+            &:before {
+                content: none;
+            }
+        }
+
+        &.item-4:before {
+            background-color: fade-out($color-base, .6);
+        }
+
+        &.item-5:before {
+            background-color: $color-secondary-b;
+            mix-blend-mode: multiply;
+        }
+
+        &.item-7:before {
+            background-color: fade-out($color-callout, .5);
+            mix-blend-mode: hard-light;
+        }
+
+        &.item-logo-part {
+            display: flex;
+            background-color: $color-base;
+            padding: $panel-body-padding * 2.5;
+
+            &:before {
+                content: none;
+            }
+
+            svg {
+                max-height: 15em;
+            }
+
+            svg path {
+                fill: fade-out($color-neutral, .5);
+            }
+
+            svg:hover, svg:focus {
+                animation-name: wiggle;
+                animation-duration: 1000ms;
+                animation-iteration-count: 1;
+                animation-timing-function: ease-in-out;
+            }
+        }
+
+        @include respond-to('grid small') {
+            grid-column: 1 / span 2;
+            min-height: 15em;
+
+            &.item-5,
+            &.item-6 {
+                background-color: $color-secondary-a;
+                grid-column: span 1;
+            }
+
+            &.item-logo-part {
+                display: none;
+            }
+        }
+    }
+
+    @include respond-to('grid large') {
+        grid-template-columns: 2fr 2fr 1fr 1fr;
+        /* giving the "overhang" cells a predictable height so we can account for them in the padding */
+        grid-template-rows: auto 4em auto auto 2.5em auto;
+        width: 95vw;
+        max-width: 100em;
+        margin-left: auto;
+        margin-right: auto;
+
+        .grid-feature-item {
+            padding: $panel-body-padding * 2;
+
+            h3 {
+                font-size: 2.4em;
+            }
+
+            &.item-1 {
+                grid-column: 1 / span 2;
+                grid-row: 1 / span 2;
+                z-index: 2;
+                justify-content: flex-end;
+            }
+
+            &.item-2 {
+                grid-column: 3 / span 2;
+                min-height: 28em;
+            }
+
+            &.item-3 {
+                /* This is the callout item */
+                padding: 7em 3em 3em 3em;
+                grid-column: 2 / span 3;
+                grid-row: 2 / span 2;
+            }
+
+            &.item-4 {
+                grid-column: 1;
+                grid-row: 3 / span 2;
+                min-height: 25em;
+                justify-content: flex-end;
+            }
+
+            &.item-5 {
+                grid-column: 2;
+                grid-row: 4 / span 2;
+                z-index: 2;
+            }
+
+            &.item-6 {
+                grid-column: 3 / span 2;
+                grid-row: 4 / span 2;
+                z-index: 2;
+            }
+
+            &.item-7 {
+                padding-top: 2.5em;
+                grid-column: 1 / span 3;
+                grid-row: 5 / span 2;
+                min-height: 22em;
+                justify-content: flex-end;
+            }
+            &.item-logo-part {
+                grid-column: 4 / span 1;
+                grid-row: 6 / span 1;
+                height: 100%;
+            }
+        }
+    }
+
+    @include breakpoint($screen-lg-min) {
+        width: 90vw;
+
+        .grid-feature-item h3 {
+            font-size: 2.8em;
+        }
+    }
+}
+/**** End Donor Sample Site Styles ****/

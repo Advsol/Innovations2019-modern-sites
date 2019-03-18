@@ -1,0 +1,117 @@
+﻿/* ==========================================================================
+   MASTERPAGE ELEMENTS
+   ========================================================================== */
+
+/* This applies to the loading bar at the top of the page */
+.ProgressDiv {
+    background-color: #ffdd6f;
+}
+
+/* header logo */
+#masterHeaderImage {
+    background-image: $logo-default-url;
+    background-repeat: no-repeat;
+    width: $logo-default-width-sm;
+    height: $logo-default-height-sm;
+    /* The following are needed to hide the text, but allow it to be read by screen readers */
+    text-indent: -9999px;
+    overflow: hidden;
+    float: left;
+    @if ($logo-default-margin-top > 0) {
+        @include respond-to('tablets and up') {
+            margin-top: $logo-default-margin-top;
+        }
+    }
+
+    // resize the logo on medium/large screens, if necessary
+    @if ($logo-default-position-md != 'null' or $logo-default-width-md != 'null' or $logo-default-height-md != 'null') {
+         @include respond-to('grid large') {
+            @if ($logo-default-position-md != null) {
+                background-position: $logo-default-position-md;
+            }
+            @if ($logo-default-width-md != null) {
+                width: $logo-default-width-md;
+            }
+            @if ($logo-default-height-md != null) {
+                height: $logo-default-height-md;
+            }
+         }
+    }
+}
+
+#masterDonorHeaderImage {
+    background-image: $logo-donor-url;
+    background-repeat: no-repeat;
+    width: $logo-donor-width-sm;
+    height: $logo-donor-height-sm;
+    /* The following are needed to hide the text, but allow it to be read by screen readers */
+    text-indent: -9999px;
+    overflow: hidden;
+    float: left;
+    @if ($logo-donor-margin-top > 0) {
+        @include respond-to('tablets and up') {
+            margin-top: $logo-donor-margin-top;
+        }
+    }
+
+    // resize the logo on medium/large screens, if necessary
+    @if ($logo-donor-position-md != 'null' or $logo-donor-width-md != 'null' or $logo-donor-height-md != 'null') {
+         @include respond-to('grid large') {
+            @if ($logo-donor-position-md != null) {
+                background-position: $logo-donor-position-md;
+            }
+            @if ($logo-donor-width-md != null) {
+                width: $logo-donor-width-md;
+            }
+            @if ($logo-default-height-md != null) {
+                height: $logo-donor-height-md;
+            }
+         }
+    }
+}
+
+/* Used in the donor site header logo content area */
+#masterHeaderActionArea a {
+    display: block;
+    text-align: center;
+}
+
+/* On Behalf Of with target set */
+.ProxyPanelContact {
+    background-color: $color-secondary-b;
+
+    &, .obo-label {
+        color: $white;
+    }
+    a {
+        color: lighten($link-color, 40%);
+    }
+}
+
+/* Sub (Left) Navigation
+   ========================================================================== */
+
+#pagesubnav
+{
+    border-right: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+}
+
+.SubNavPanelHead
+{
+    background-color: $color-alt-bg;
+    color: $text-color;
+    font-family: $headings-font-family;
+    font-weight: $headings-font-weight;
+}
+
+.SubNavigationSeparator
+{
+    border-width: 1px 0 0 0;
+    border-style: $border-style;
+    border-color: $border-color;
+    height: 1px;
+    padding: 0;
+    margin: 0;
+}
+

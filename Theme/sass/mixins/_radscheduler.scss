@@ -1,0 +1,45 @@
+﻿// From iMIS 20.3
+
+@mixin radscheduler-metro($header-bg-color: $color-base) {
+    .rsAptIn {
+        border-top: none;
+    }
+
+    .rsHeader {
+        border-color: $header-bg-color;
+        background-color: $header-bg-color;
+
+        ul a {
+            border-color: $header-bg-color;
+        }
+
+        h2 {
+            font-family: $font-family-base;
+            font-weight: bold;
+            color: #fff;
+            text-transform: none;
+            border-bottom: none;
+        }
+    }
+}
+
+@mixin radscheduler-metrotouch() {
+    @include radscheduler-metro();
+
+    @include respond-to('tablets and down') {
+        .rsHeader {
+            height: auto;
+
+            ul {
+                clear: left;
+                margin-top: 0;
+                margin-bottom: -19px;
+
+                a,
+                .rsSelected em {
+                    padding-top: 10px;
+                }
+            }
+        }
+    }
+}

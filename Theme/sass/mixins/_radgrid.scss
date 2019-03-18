@@ -1,0 +1,230 @@
+﻿// From iMIS 20.3
+
+@mixin radgrid-color-reset($link-separate: false, $contrast-color: $color-base) {
+    background-color: $contrast-color;
+    border-color: $contrast-color;
+
+    @if ($link-separate == true) {
+        a {
+            color: #fff !important;
+        }
+    }
+    @else {
+        color: #fff !important;
+    }
+}
+
+@mixin radgrid-metro($alternate-rows: true, $contrast-color: $color-base) {
+    color: $text-color;
+
+    .rgMasterTable {
+        background-color: #fff;
+    }
+
+    .rgHeader, .rgRow td,
+    .rgAltRow td, .rgEditRow > td {
+        border-left-color: transparent;
+    }
+
+    td.rgPagerCell {
+        border-width: 0;
+    }
+
+    @if ($view-type == 'Responsive') {
+        .rgHeader, th.rgResizeCol, .rgRow td,
+        .rgAltRow td, .rgEditRow > td, .rgFooter td,
+        .rgFilterRow td, .rgNoRecords td {
+            &, &:first-child {
+                padding: 7px 12px;
+            }
+        }
+
+        .rgRow td, .rgAltRow td {
+            &.rgExpandCol, &.rgExpandCol:first-child {
+                /* reset the padding for expand/collapse column */
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+
+    .rgCommandRow {
+        background-color: transparent;
+    }
+
+    .rgNumPart a.rgCurrentPage, .rgNumPart a.rgCurrentPage:hover,
+    .rgPagePrev:active, .rgPageNext:active, .rgPageFirst:active, .rgPageLast:active,
+    .rgPager .rgPagerButton {
+        @include radgrid-color-reset(false);
+    }
+
+    input.rgAdd,
+    input.rgRefresh,
+    .rgSave,
+    .rgCommandRow .rgCancel {
+        background-color: $contrast-color;
+
+        &:hover {
+            background-color: #fff;
+        }
+    }
+
+    @if $alternate-rows != true {
+        .rgHeader {
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+
+            &:hover {
+                overflow: visible;
+
+                a, span[onclick] {
+                    z-index: 100;
+                }
+            }
+
+            &.text-hide, &.rgExpandCol {
+                font-size: 0;
+            }
+
+            a:not(.Link), span[onclick] {
+                /* Note:There are a couple of places where we want the link to be styled 
+                   (e.g. the header link in duplciate merge), so make sure those still look like links
+                */
+                color: $text-color !important;
+                text-decoration: none !important;
+            }
+
+            input[type="radio"] {
+                /* For duplicate merge */
+                vertical-align: unset;
+            }
+        }
+
+        th.rgSorted {
+            color: $text-color;
+
+            &, a:not(.Link), span[onclick] {
+                background-color: $color-base-lighter;
+            }
+        }
+
+        .rgRow, .rgAltRow {
+            background-color: transparent;
+
+            &:hover {
+                background-color: $gray-very-light;
+            }
+
+            td, td.rgSorted {
+                border-top: 1px solid $border-color;
+                border-bottom-color: transparent;
+                border-right-color: transparent;
+                border-left-color: transparent;
+                background-color: transparent;
+            }
+
+            &:first-child td, &:first-child td.rgSorted {
+                border-top-color: transparent;
+            }
+
+            .rgHeader, .rgHeader a {
+                background-color: $gray-very-light;
+            }
+        }
+
+        .rgSelectedRow, .rgSelectedRow:hover, td.rgSelectedRow {
+            background-color: $gray-lighter;
+            border-top-color: $border-color;
+            color: $text-color;
+
+            a {
+                color: $link-color;
+            }
+        }
+
+        .rgHeader[aria-sort="none"] a:after,
+        .rgHeader:not(.rgSorted) span[onclick]:after,
+        .rgHeader .rgSortAsc,
+        .rgHeader .rgSortDesc {
+            content: '';
+            display: inline-block;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            background-image: none !important;
+            margin: 0;
+            float: none;
+            width: 5px;
+            height: 7px;
+        }
+
+        .rgHeader[aria-sort="none"] a,
+        .rgHeader:not(.rgSorted) span[onclick] {
+            position: relative;
+            display: inline-block;
+            padding-right: 18px;
+
+            &:after {
+                border-bottom: 7px solid $gray-light;
+                visibility: hidden;
+                position: absolute;
+                right: 3px;
+                bottom: 18%;
+            }
+
+            &:hover:after {
+                visibility: visible;
+            }
+        }
+
+        .rgSortAsc, .rgSortDesc {
+            margin-left: 5px;
+            margin-bottom: 2px;
+        }
+
+        .rgSortAsc {
+            border-bottom: 7px solid $text-color;
+        }
+
+        .rgSortDesc {
+            border-top: 7px solid $text-color;
+        }
+
+        .rgSelectedRow td.rgSorted {
+            color: $text-color;
+        }
+
+        td.rgSorted, .rtAltRow td.rgSorted {
+            background-color: transparent;
+        }
+
+        .rgRow:last-child td, .rgAltRow:last-child td {
+            border-bottom-width: 0;
+        }
+    }
+
+    @else {
+        .rgGroupPanel, .rgGroupPanel caption {
+            background-color: $contrast-color;
+        }
+
+        .rgActiveRow td, .rgActiveRow td.rgSorted,
+        .rgSelectedRow td, .rgSelectedRow td.rgSorted,
+        .rgMasterTable .rgActiveCell {
+            border-color: $contrast-color;
+        }
+
+        * + html & .rgSelectedRow .rgSorted,
+        * html & .rgSelectedRow .rgSorted {
+            background-color: $contrast-color;
+        }
+
+        .rgMasterTable .rgSelectedCell,
+        .rgSelectedRow,
+        td.rgEditRow .rgSelectedRow,
+        .rgSelectedRow td.rgSorted,
+        th.rgSorted {
+            @include radgrid-color-reset(true, $contrast-color);
+        }
+    }
+}

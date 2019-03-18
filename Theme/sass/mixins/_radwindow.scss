@@ -1,0 +1,48 @@
+﻿// From iMIS 20.3
+
+@mixin radwindow-metrotouch() {
+    .rwTitleRow {
+        .rwTitlebar, .rwTopLeft, .rwTopRight {
+            background-color: $radwindow-header-bg;
+        }
+
+        td.rwWindowContent a.rwPopupButton {
+            &:active, &:focus {
+                border-color: $radwindow-header-bg;
+                background-color: $radwindow-header-bg;
+            }
+        }
+    }
+
+    .rwControlButtons a:focus {
+        border-color: #fff;
+        border-radius: 50%;
+        /* override setting from UltraWave */
+        outline: none;
+    }
+}
+
+@mixin radwindow-metro() {
+    .rwTitlebar, .rwTopLeft, .rwTopRight,
+    .rwTopResize,
+    .rwControlButtons a {
+        background-color: $radwindow-header-bg;
+    }
+
+    .rwControlButtons a {
+        border-color: $radwindow-header-bg;
+
+        &:focus {
+            /* give the refresh, expand, close buttons an outline when focused */
+            @include box-shadow(0 0 0 1px rgba(#fff, .7));
+            /* needed for IE9 compability */
+            border-collapse: separate;
+            /* override setting from UltraWave */
+            outline: none;
+        }
+    }
+
+    table.rwTitlebarControls em {
+        text-transform: none;
+    }
+}

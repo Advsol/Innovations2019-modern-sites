@@ -1,0 +1,34 @@
+﻿// From iMIS 20.3
+
+@mixin radmenu-metro() {
+    &, .rmRootLink {
+        text-transform: none;
+        color: #ffffff;
+    }
+
+    div.rmRootGroup,
+    ul.rmRootGroup {
+        background-color: $radmenu-bg;
+    }
+
+    .rmRootLink {
+        border-color: $radmenu-bg;
+    }
+
+    .rmDisabled {
+        &, &:hover {
+            border-color: $radmenu-bg;
+        }
+    }
+
+    .rmGroup .rmFocused,
+    .rmGroup .rmSelected,
+    .rmGroup .rmLink.rmSelected,
+    .rmGroup .rmExpanded {
+        &, &:hover {
+            border-color: $radmenu-bg;
+            background-color: $radmenu-bg;
+            color: #FFF !important;
+        }
+    }
+}

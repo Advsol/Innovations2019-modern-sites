@@ -1,0 +1,295 @@
+//
+// Forms
+// --------------------------------------------------
+
+
+// GENERAL STYLES
+// --------------
+
+
+input,
+button,
+select,
+textarea {
+    font-family: $font-family-base; // Only set font-family here for those that need it (note the missing label element)
+}
+
+// Form controls
+// -------------------------
+
+// Shared size and type resets
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+    display: inline-block;
+    height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+    padding: $padding-base-vertical $padding-base-horizontal;
+    font-size: 100%;
+    line-height: $line-height-base;
+    color: $input-color;
+    border: 1px solid $input-border;
+    border-radius: $input-border-radius;
+    @include box-shadow($input-box-shadow);
+    @include transition(#{border linear .2s, box-shadow linear .2s});
+    // Customize the `:focus` state to imitate native WebKit styles.
+    @include form-control-focus();
+
+    // Placeholder
+    &::placeholder {
+        color: $input-placeholder-color;
+        // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+        opacity: 1;
+    }
+
+    // Disabled and read-only inputs
+    // Note: HTML5 says that controls under a fieldset > legend:first-child won't
+    // be disabled if the fieldset is disabled. Due to implementation difficulty,
+    // we don't honor that edge case; we style them as disabled anyway.
+    //&[disabled],
+    //&[readonly],
+    //fieldset[disabled] & {
+    //    background-color: $input-bg-disabled;
+    //}
+}
+
+
+/* RadComboBox needs the same styles as normal inputs, 
+ * but has to be done separately due to its structure */
+.RadComboBox.RadComboBox_MetroTouch {
+    color: $input-color;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+
+    .rcbInner, .rcbFocused, .rcbHovered {
+        &, .rcbInput {
+            color: $input-color;
+        }
+    }
+    .rcbInner {
+        height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+        padding: 0;
+        font-size: 100%;
+        line-height: $line-height-base;
+        border: 1px solid $input-border;
+        border-radius: $input-border-radius;
+        @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+        @include transition(#{border linear .2s, box-shadow linear .2s});
+    }
+    .rcbInputCell {
+        padding: 0;
+    }
+    .rcbFocused {
+        // Customize the `:focus` state to imitate native WebKit styles.
+        @include form-control-focus-direct();
+    }
+
+    .rcbInput {
+        height: 100%;
+        padding: $padding-base-vertical $padding-base-horizontal;
+    }
+
+    &.PageSizeDropDown .rcbInput {
+        /* Make sure the page size dropdown in the RadGrid has enough room to show page size */
+        padding: 2px;
+    }
+
+    .rcbInner .rcbEmptyMessage, 
+    .rcbHovered .rcbEmptyMessage {
+        color: $input-placeholder-color;
+    }
+
+    .rcbActionButton {
+        border-radius: 0 $input-border-radius $input-border-radius 0;
+
+        .rcbIcon { height: 1.4em; }
+    }
+}
+
+.RadComboBoxDropDown.RadComboBoxDropDown_MetroTouch {
+    font: inherit;
+
+    .rcbItem, .rcbHovered, .rcbDisabled, .rcbLoading {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}
+
+.RadInput.RadInput.riSingle, .RadInput.RadInput, .RadInput{
+    height:auto !important; /* IE11 */
+    .riTextBox {
+        height: $input-height-base;
+        padding: $padding-base-vertical $padding-base-horizontal;
+        border-color: $input-border;
+        font: inherit;
+        color: $input-color;
+
+        &:focus {
+            border-color: $input-border-focus;
+        }
+    }
+}
+
+.RadUpload.RadUpload {
+    .ruFakeInput {
+        height: $input-height-base - 2px;
+        padding: 0;
+        border-radius: $input-border-radius;
+    }
+}
+
+/* RadEditor designed to look like a normal text box */
+.HtmlEditorTextBoxStyle {
+    border: 1px solid $input-border;
+    border-radius: $input-border-radius;
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+
+    .reContent { border-radius: $input-border-radius; }
+    iframe, td { background-color: transparent; }
+}
+
+/* RadPicker - Make sure there's some space between the picker and the time zone label*/
+.RadPicker + .TimeZoneLabel { margin-left: .5em; }
+
+
+/* Chosen multi-select */
+.chosen-container-multi .chosen-choices {
+    min-height: $input-height-base;
+    border-radius: $input-border-radius;
+    border-color: $input-border;
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+    @include transition(#{border linear .2s, box-shadow linear .2s});
+    background-image: none;
+
+    li.search-field { 
+        /* Remove the styling used in the master page search-field */
+        background-color: transparent; 
+        background-image: none;
+        border-color: transparent;
+        padding-left: 0 !important;
+    }
+}
+
+.chosen-container-active .chosen-choices {
+    @include form-control-focus-direct();
+}
+
+// Position radios and checkboxes better
+input[type="radio"],
+input[type="checkbox"] {
+    margin: 4px 0 0;
+    *margin-top: 0; /* IE7 */
+    margin-top: 1px \9; /* IE8-9 */
+    line-height: normal;
+    cursor: pointer;
+}
+
+// Reset width of input images, buttons, radios, checkboxes
+input[type="file"],
+input[type="image"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto; // Override of generic input selector
+}
+
+// Reset height for `textarea`s
+textarea {
+    height: auto;
+}
+
+// Make select elements obey height by applying a border
+select {
+  //width: 220px; // default input width + 10px of padding that doesn't get applied
+    border: 1px solid $input-border;
+    background-color: $input-bg; // Chrome on Linux and Mobile Safari need background-color
+}
+
+// Make multiple select elements height not fixed
+select[multiple],
+select[size] {
+    height: auto;
+}
+
+// Focus for select, file, radio, and checkbox
+select:focus,
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+    @include tab-focus();
+}
+
+// AR Note - the disabled states are handled in UltraWave - shouldn't need to worry about them here
+// DISABLED STATE
+// --------------
+
+// Disabled and read-only inputs
+// input[disabled],
+//select[disabled],
+//textarea[disabled],
+//input[readonly],
+//select[readonly],
+//textarea[readonly] {
+//    cursor: default;
+//    background-color: $input-bg-disabled;
+//}
+// Explicitly reset the colors here
+//input[type="radio"][disabled],
+//input[type="checkbox"][disabled],
+//input[type="radio"][readonly],
+//input[type="checkbox"][readonly],
+//input[type="image"][disabled] {
+//    background-color: transparent;
+//}
+
+//input[type="image"][disabled] {
+//    opacity: .5;
+//}
+
+
+// SEARCH FORM
+// -----------
+
+//input.search-query {
+//    padding-right: 14px;
+//    padding-right: 4px \9;
+//    padding-left: 14px;
+//    padding-left: 4px \9; /* IE7-8 doesn't have border-radius, so don't indent the padding */
+//    margin-bottom: 0; // Remove the default margin on all inputs
+//    @include border-radius(15px);
+//}
+
+///* Allow for input prepend/append in search forms */
+//.form-search .input-append .search-query,
+//.form-search .input-prepend .search-query {
+//    @include border-radius(0); // Override due to specificity
+//}
+//.form-search .input-append .search-query {
+//    @include border-radius(14px 0 0 14px);
+//}
+//.form-search .input-append .btn {
+//    @include border-radius(0 14px 14px 0);
+//}
+//.form-search .input-prepend .search-query {
+//    @include border-radius(0 14px 14px 0);
+//}
+//.form-search .input-prepend .btn {
+//    @include border-radius(14px 0 0 14px);
+//}

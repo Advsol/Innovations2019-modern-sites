@@ -1,0 +1,162 @@
+﻿/* ==========================================================================
+   Basic setup
+   ========================================================================== */
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $text-color;
+}
+
+a, .Link {
+    @include link-styles(); 
+}
+
+.RadGrid a, .RadToolTip a {
+    @include link-styles(' !important');
+}
+
+.RadGrid a.TextButton {
+    color: $white !important;
+    text-decoration: none !important;
+}
+
+h1, .h1, .PageTitle {
+    font-size: $h1-font-size;
+    font-family: $h1-font-family;
+    font-weight: $h1-font-weight;
+    color: $h1-color;
+    margin-top: 0;
+}
+
+h1.BigHeader, .h1.BigHeader {
+    color: $white;
+    background-color: $color-callout;
+    padding: 20px;
+    margin: 0;
+}
+
+h2, .h2, .panel-heading.Distinguish, .PanelHead.Distinguish, 
+.TitleBarCaption, div.PanelTitle {
+    min-height: 0;
+    border-bottom-style: $border-style;
+}
+h2, .h2, .PanelTitle {
+    font-size: $h2-font-size;
+    font-family: $h2-font-family;
+    font-weight: $h2-font-weight;
+    color: $h2-color;
+    line-height: 1.45em;
+}
+
+h3, .SectionTitle {
+    font-size: $h3-font-size;
+    font-family: $h3-font-family;
+    font-weight: $h3-font-weight;
+    color: $h3-color;
+}
+
+h4, .SectionLabel, h5 {
+    margin: 0 0 .2em;
+}
+
+h4, .h4, .SectionLabel {
+    font-size: $h4-font-size;
+    font-family: $h4-font-family;
+    font-weight: $h4-font-weight;
+    color: $h4-color;
+}
+
+h5, .h5 {
+    font-size: $h5-font-size;
+    font-family: $h5-font-family;
+    font-weight: $h5-font-weight;
+    color: $h5-color;
+}
+
+h6, .h6 {
+    font-size: $h6-font-size;
+    font-family: $h6-font-family;
+    font-weight: $h6-font-weight;
+    color: $h6-color;
+    margin: 0;
+}
+
+hr {
+    margin-left: .5em;
+    margin-right: .5em;
+    border-width: 1px 0 0 0;
+    border-style: $hr-border-style;
+    border-color: $hr-border;
+}
+
+.StandardPanel, 
+.ContentBorder, 
+h2, 
+.PanelHead.Distinguish, 
+.TitleBarCaption, 
+div.ShowFieldset fieldset,
+.panel-border,
+.panel-heading.Distinguish {
+    border-color: $border-color;
+}
+
+.PanelHead.Distinguish .PanelHeadOptions,
+.panel-heading.Distinguish .panel-head-options {
+    margin-top: .6em;
+}
+
+/* Used for messages guiding users to the next step */
+.HelperText {
+    color: $helper-text-color;
+}
+
+/* This gives certain selected items (e.g., in the PeoplePanel in the Event Showcase) a colored background */
+.SelectedItem {
+    background-color: $hover-highlight;
+}
+
+@if $view-type != Desktop {
+    /**
+      * This automatically resizes images when they're too large to fit in their container. 
+      * It may override any user-defined width/height on images. If the behavior is unwanted, 
+      * consider changing this declaration to a class (e.g. '.img-responsive') which you can 
+      * apply as desired.
+      */
+    img {
+    max-width: 100%;
+    height: auto !important;
+    }
+    /**
+      * Sometimes images should not be resized. This class can be used as a wrapper or directly
+      * on the image to avoid the resizing.
+      */
+    img.ImgNoResize, .ImgNoResize img {
+        max-width: none;
+    }
+}
+
+/* Give a block of text some extra emphasis.
+ * This class also makes the text larger, per UltraWave styles */
+.lead {
+    margin-bottom: 20px;
+}
+
+.bg-img-full-size {
+    @include bg-img-cover();
+}
+
+.bg-img-dark {
+    background-color: $gray-dark;
+    
+    &, h1, h2, h3, h4, h5, h6 {
+        color: $white;
+    }
+
+    a:not(.TextButton):not(.btn) {
+        &, &:hover, &:focus, &:active {
+            color: $white;
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+﻿// From iMIS 20.3
+
+@mixin unstyled-list() {
+    padding-left: 0;
+    list-style: none;
+
+    li {
+        list-style: none;
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+}
+
+@mixin inline-list() {
+    margin: 0;
+    padding: 0;
+
+    &, > li {
+        list-style: none;
+        display: inline-block;
+    }
+}

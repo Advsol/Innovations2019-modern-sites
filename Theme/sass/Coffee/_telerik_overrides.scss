@@ -1,0 +1,274 @@
+﻿/* ==========================================================================
+   TELERIK OVERRIDES
+   ========================================================================== */
+
+/* RadTabStrip
+   ========================================================================== */
+.RadTabStripTop_Metro, 
+.RadTabStrip_Metro {
+    .rtsLevel1, .rtsLevel1 .rtsUL {
+        background-color: $color-base !important;
+        .rtsLink {
+            text-transform: none;
+            border-color: $color-base;
+            @if ($border-radius-base > 0) {
+                border-radius: $border-radius-base $border-radius-base 0 0;
+            }
+        }
+        .rtsSelected, .rtsLink:hover {
+            border-color: $white;
+        }
+        .rtsDisabled, .rtsDisabled:hover {
+            color: #dedede;
+            border-color: transparent;
+        }
+    }
+}
+
+.RadTabStrip_MetroTouch.RadTabStrip_MetroTouch {
+    clear: both;
+}
+
+.RadTabStrip_MetroTouch.RadTabStrip_MetroTouch {
+    html & .rtsLevel1 .rtsSelected {
+        &, &:hover {
+            border-color: $color-base;
+            background-color: $color-base;
+        }
+    }
+
+    @include breakpoint(max-width 600px, $no-query: $no-query-mobile) {
+        .rtsLI, .rtsLink, .rtsUL, .rtsLevel {
+            float: none;
+            width: 100%;
+            display: block;
+        }
+
+        html & .rtsLevel1 .rtsLink {
+            margin: 0;
+        }
+    }
+}
+
+.RadTabStripVertical.RadTabStrip_MetroTouch.RadTabStrip_MetroTouch {
+    @include respond-to('smartphones and down') {
+        display: block;
+
+        + .RadMultiPage {
+            border-top-width: 0;
+        }
+
+        .rtsLink, .rtsIn {
+            text-align: center;
+        }
+    }
+
+    @include breakpoint(601px $screen-xs-max, $no-query: $no-query-mobile) {
+        .rtsLI {
+            display: inline-block;
+            float: left;
+        }
+    }
+}
+
+/* On the account page, when secondary nav is present, display the tabs on top */
+.account-page-with-banner .has-secondary-col {
+    @include respond-to('tablets and up'){
+        .tabs-wrapper.tabs-left, 
+        .tags-wrapper.tabs-right {
+            display: block;
+        }
+
+        .RadTabStripVertical.RadTabStrip_MetroTouch.RadTabStrip_MetroTouch .rtsLI {
+            display: inline-block;
+            float: left;
+        }
+    }
+    
+}
+
+.RadTabStrip, 
+.RadTabStripVertical { padding: 10px 10px 0 10px; }
+
+.RadTabStrip_MetroTouch.RadTabStripBottom_MetroTouch {
+    .rtsLevel1 {
+        border: none;
+    }
+}
+
+/* RadToolTip
+   ========================================================================== */
+/* Currently used by the QueryMenu iPart */
+.RadToolTip_Telerik a:hover {
+    background-color: $hover-highlight;
+}
+
+/* RadGrid
+   ========================================================================== */
+.RadGrid.RadGrid_MetroTouch,
+.RadGrid.RadGrid_Metro {
+    @include radgrid-metro();
+}
+
+/* RadComboBox
+   ========================================================================= */
+.RadComboBox .rcbActionButton .t-font-icon {
+    font: 16px/1 "TelerikWebUI";
+}
+
+/* RadDataPager
+   ========================================================================== */
+.RadDataPager.RadDataPager_MetroTouch, 
+.RadDataPager.RadDataPager_Metro {
+    @include raddatapager-metro();
+}
+
+/* RadScheduler
+   ========================================================================== */
+.RadScheduler.RadScheduler_Metro {
+    @if ($theme-name == 'GlacierBay') {
+        @include radscheduler-metro($color-secondary-a);
+    }
+    @else {
+        @include radscheduler-metro($color-base);
+    }
+}
+
+/* RadMenu
+   ========================================================================== */
+
+.RadMenu.RadMenu_Metro,
+.RadMenu.RadMenu_MetroTouch {
+    @include radmenu-metro();
+}
+
+.RadMenu_MetroTouch .rmRootGroup .rmLeftImage {
+    margin-top: 10px!important;
+}
+
+.RadMenu .RadSiteMap .rsmTwoLevels>.rsmItem>.rsmLink
+{
+    border-style: none;
+}
+
+/* RadWindow
+   ========================================================================== */
+.RadWindow.RadWindow_MetroTouch {
+    @include radwindow-metrotouch();
+}
+
+.RadWindow.RadWindow_Metro {
+    @include radwindow-metro();
+}
+
+/* RadTreeView
+   ========================================================================== */
+.RadTreeView.RadTreeView_Vista {
+    .rtLI { padding: 0; }
+
+     .rtPlus, .rtMinus {
+        margin: 5px 6px 0 -17px;
+        width: 11px;
+        height: 11px;
+        border-width: 0;
+        left: auto; 
+        top: auto; 
+    }
+}
+
+/* RadPicker
+   ========================================================================== */
+/* Date and Time selectors */
+.RadCalendar.RadCalendar_Metro,
+.RadCalendar.RadCalendar_MetroTouch {
+    &, .rcMainTable {
+        font-family: inherit;
+        font-weight: inherit;
+    }
+
+    .rcFastPrev, .rcPrev, .rcNext, .rcFastNext {
+        &:hover {
+            border-color: $color-base;
+        }
+        &:hover:before {
+            color: $color-base;
+        }
+    }
+
+    .rcRow .rcToday a {
+        border-color: $color-base;
+    }
+
+    .rcMain .rcRow .rcSelected a {
+        border-color: $color-base;
+        background: $color-base;
+    }
+}
+.RadCalendar.RadCalendar_MetroTouch {
+    .rcRow a, .rcRow span {
+        /* The Sunday column is not rendering correctly because it's in a <th>
+           instead of a <td>. This corrects the issue. */
+        display: block;
+        padding: .08em .4em;
+        text-decoration: none;
+        outline: 0;
+    }
+    .rcMain .rcRow th {
+        font-size: 100%;
+        padding: 0;
+    }
+}
+.RadCalendar.RadCalendar_Metro {
+    .rcRow a, .rcRow span {
+        display: block;
+        padding: 0 .6em;
+        text-decoration: none;
+        outline: 0;
+    }
+    .rcMain .rcRow th {
+        padding: 0;
+    }
+}
+.RadCalendarMonthView.RadCalendarMonthView_Metro,
+.RadCalendarMonthView.RadCalendarMonthView_MetroTouch {
+    &, .rcButtons input {
+        font-family: inherit;
+        font-weight: inherit;
+    }
+    
+    .rcSelected a {
+        background: $color-base;
+    }
+}
+.RadCalendarMonthView.RadCalendarMonthView_MetroTouch {
+    #rcMView_Today {
+        background: $color-base;
+        border-color: $color-base;
+    }
+}
+.RadCalendarTimeView.RadCalendarTimeView_Metro,
+.RadCalendarTimeView.RadCalendarTimeView_MetroTouch {
+    font-family: inherit;
+    font-weight: inherit;
+
+    td.rcSelected a {
+        border-color: $color-base;
+        background: $color-base;
+    }
+}
+.RadPicker.RadPicker_Metro, 
+.RadPicker.RadPicker_MetroTouch {
+    .rcCalPopup, .rcTimePopup {
+        &:hover, &:focus, &:active {
+            color: GetBestContextualTextColor($color-base);
+            background-color: $color-base;
+        }
+    }
+}
+.RadPicker {
+    .rcCalPopup, .rcTimePopup {
+        width: inherit;
+        text-indent: inherit;
+        @include border-right-radius($input-border-radius);
+    }
+}

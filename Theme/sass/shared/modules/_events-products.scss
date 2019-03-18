@@ -1,0 +1,57 @@
+﻿/* Event Display
+   ========================================================================== */
+.EventSummary {
+    background-color: $event-display-bg;
+
+    @if $event-display-bg == transparent {
+        .PhotoArea {
+            padding-right: 2em;
+            padding-bottom: 2em;
+        }
+        .Description {
+            padding-bottom: 2em;
+        }
+    }
+    @else {
+        .PhotoArea {
+            padding: 2em;
+        }
+        .Description {
+            padding: 0 2em 2em 2em;
+            @include breakpoint($screen-sm-min, $no-query: $no-query-default) {
+                padding-top: 2em;
+            }
+        }
+    }
+
+    .PhotoArea img {
+        border: 1px solid $border-color !important;
+    }
+} 
+
+.ProgramGroup {
+    .PanelHead,
+    .panel-heading {
+        background-color: $hover-highlight;
+    }
+    .PanelTitle,
+    .panel-title {
+        font-family: $font-family-base;
+        font-weight: bold;
+        font-size: 120%;
+        line-height: 2em;
+        padding-left: .5em;
+        color: color-yiq($hover-highlight);
+    }
+    .PanelBody, 
+    .panel-body {
+        padding: 0;
+    }
+}
+
+/* Product Display
+   ========================================================================== */
+.ProductDisplay {
+    background-color: $color-alt-bg;
+    padding: 1em;
+}

@@ -1,0 +1,22 @@
+﻿/* Search Results
+   ========================================================================== */
+.SearchField, 
+.SearchResultSummary .ListItemTitle a {
+    display: block;
+    background-color: lighten($hover-highlight, 10%);
+    padding: 8px 12px;
+}
+.SearchField label {
+    font-size: 120%;
+    color: $color-secondary-a;
+}
+.SearchResultSummary .ListItemTitle a {
+    text-decoration: none;
+    color: $text-color !important;
+    margin: -4px -7px 0;
+}
+
+.SearchResultSummary .ListItemTitle a:hover {
+    background-color: $hover-highlight;
+    text-decoration: underline;
+}

@@ -1,0 +1,458 @@
+/* ==========================================================================
+   PRIMARY NAVIGATION
+   ========================================================================== */
+
+.primary-navigation-area .MegaDropDownMenuOuter {   
+    @include respond-to('grid large') {
+        text-align: $navbar-horizontal-alignment;
+    }           
+}
+.header-bottom-container {
+    @include respond-to('grid large') {
+        //background-color: $navbar-default-bg;
+        min-height: $navbar-height;
+    }
+}
+
+/* Reset some Telerik defaults */
+.RadMenu.RadMenu_#{$theme-family} {
+    float: none;
+    z-index: $zindex-navbar !important;
+    position: relative;
+
+    &:focus { outline: none; }
+
+    .rmVertical .rmToggle .rmIcon:before, 
+    .rmVertical .rmExpand:before, 
+    .rmRightArrow .rmIcon:before,
+    .rmHorizontal .rmToggle .rmIcon:before, 
+    .rmHorizontal .rmExpand:before, 
+    .rmBottomArrow .rmIcon:before { content: none; }
+
+    .rmItem, 
+    .rmHorizontal > .rmItem, 
+    .rmHorizontal > .rmRootScrollGroup > .rmItem,
+    .rmLink { float: none; }
+
+    .rmLink { padding: 0px; }
+
+    .rmToggle,
+    .rmRootGroup .rmRootLink .rmToggle  { width: auto; }
+
+    .rmToggle, 
+    .rmToggle .rmIcon, 
+    .rmRootGroup .rmRootLink .rmToggle { position: static; }
+
+    .rmGroup .rmContent, 
+    .rmRootGroup .rmContent {
+        padding: 0;
+    }
+
+    .RadSiteMap {
+        &, .rsmItem, .rsmTwoLevels .rsmItem { font-size: inherit; }
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .rmItem, .rsmItem { list-style: none; }
+
+    .rmDisabled > a, .rsmDisabled > a { cursor: default; }
+
+    .rmItem {
+        width: auto;
+        clear: both;
+        text-align: left;
+    }
+
+    .rmText,
+    .rmHorizontal .rmText,
+    .rmSlide .rmText { padding: $navbar-padding-vertical $navbar-padding-horizontal; }
+
+    .rmSlide .MegaDropDownMenuOuter > .rmText {
+        /* when mega menus are on, don't add padding around the rmText */
+        padding: 0;
+    }
+
+    .rmSlide .rmText {
+        /* give space for the expand arrow */
+        padding-right: ($navbar-padding-horizontal + 25px);
+    }
+
+    .rmSlide .rmGroup { position: relative; }
+
+    .rsmItem {
+        padding: ($navbar-padding-vertical / 2) $navbar-padding-horizontal;
+        margin: 0;
+        word-break: break-all;
+    }
+
+    .rsmLink,
+    .rsmOneLevel .rsmItem .rsmLink { padding: 0; }
+
+    .rsmTwoLevels .rsmItem .rsmItem,
+    .rsmTwoLevels .rsmLevel1 .rsmLink {
+        /* make sure second-level rsm items are lined up properly */
+        padding-left: 0;
+        margin-right: $navbar-padding-horizontal;
+    }
+
+    .rsmTwoLevels .rsmLink { margin-bottom: 0; }
+
+    .rsmColumn {
+        /* for multiple columns on the mega menu */
+        display: inline-block;
+        vertical-align: top;
+        padding-right: ($navbar-padding-vertical / 2);
+
+        @include breakpoint(max-width $screen-xs-min, $no-query: $no-query-mobile) {
+            /* on very small screens drop mega menu columns to one */
+            width: 100% !important;
+        }
+    }
+
+    .rsmColumnWrap { margin-bottom: 0; }
+
+    .rsmOneLevel .rsmItem .rsmLink,
+    .rsmOneLevel .rsmItem .rsmTemplate {  white-space: nowrap; }
+
+    .rsmOneLevel .rsmItem .rsmLink,
+    .rsmOneLevel .rsmItem .rsmTemplate,
+    .rsmTwoLevels .rsmLevel1 .rsmLink,
+    .rsmTwoLevels .rsmLevel1 .rsmTemplate,
+    .rsmThreeLevels .rsmLevel1 .rsmLink,
+    .rsmThreeLevels .rsmLevel1 .rsmTemplate { display: block; }
+
+    .rmLink,
+    .rsmLink {
+        text-decoration: none;
+        display: block;
+        position: relative; /* required for the menu to work in IE */
+    }
+
+    .rsmColumnWrap .rsmLevel1 .rsmLink, 
+    .rsmColumnWrap .rsmLevel1 .rsmTemplate {
+        padding: 0;
+        margin: 0;
+    }
+
+    .rmGroup .rmText { margin: 0; }
+
+    .rmRootLink {
+        color: $navbar-default-color;
+        font-family: $navbar-default-link-font-family;
+        font-size: $navbar-default-link-font-size;
+        font-weight: $navbar-default-link-weight;
+        letter-spacing: $navbar-default-link-letter-spacing;
+
+        .header-dark & {
+            color: $navbar-alt-color;
+            font-family: $navbar-alt-link-font-family;
+            font-size: $navbar-alt-link-font-size;
+            font-weight: $navbar-alt-link-weight;
+            letter-spacing: $navbar-alt-link-letter-spacing;
+        }
+    }
+
+    .rmRootLink.rmSelected {
+        /* root item selected styles */
+        color: $navbar-default-link-active-color;
+        background-color: $navbar-default-link-active-bg;
+
+        .header-dark & {
+            color: $navbar-alt-link-active-color;
+            background-color: $navbar-alt-link-active-bg;
+        }
+    }
+
+    .rmRootLink.rmExpanded,
+    .rmRootLink:hover,
+    .rmRootLink.rmFocused {
+        /* root item hover and focus styles */
+        background-color: $navbar-default-link-hover-bg;
+        color: $navbar-default-link-hover-color;
+
+        .header-dark & {
+            color: $navbar-alt-link-hover-color;
+            background-color: $navbar-alt-link-hover-bg;
+        }
+    }
+
+    .rmGroup {
+        background-color: $navbar-default-dropdown-bg;
+
+        .header-dark & {
+            background-color: $navbar-alt-dropdown-bg;
+        }
+    }
+
+    .rmDisabled > .rmLink,
+    .rsmDisabled > .rsmLink {
+        color: $navbar-default-dropdown-link-disabled-color;
+
+        &:hover,
+        &:active {
+            background-color: transparent;
+            color: $navbar-default-dropdown-link-disabled-color;
+        }
+
+        .header-dark & {
+            color: $navbar-alt-dropdown-link-disabled-color;
+
+            &:hover,
+            &:active {
+                color: $navbar-alt-dropdown-link-disabled-color;
+            }
+        }
+    }
+
+    .rmToggle, 
+    .rmRootGroup .rmRootLink .rmToggle {
+        /* a clickable target to expand multi-level navigaiton */
+        display: inline-block;
+        //margin: (-$navbar-padding-vertical) (-$navbar-padding-horizontal);
+        float: right;
+        height: 100%;
+
+        .rmIcon {
+            @include text-hide();
+            display: block;
+            @include size(23px, 15px);
+            background-image: url('images/responsivenav.png');
+            background-repeat: no-repeat;
+            @include vertical-align(15px, 45px);
+            margin-right: $navbar-padding-horizontal;
+            margin-left: $navbar-padding-horizontal;
+        }
+    }
+
+    .rmLink:hover,
+    .rmLink.rmFocused,
+    .rmSelected > .rmLink,
+    .rmFocused > .rmLink.rmRootLink,
+    .rmExpanded > .rmLink,
+    .rmSlide .rmLink {
+        .rmToggle > .rmIcon {
+            background-position: 0 -26px;
+        }
+    }
+
+    .rmExpanded > .rmLink > .rmToggle > .rmIcon {
+        transform: rotate(180deg);
+    }
+}
+
+/*2nd and 3rd level navigation (dropdown menus)*/
+.RadMenu_#{$theme-family} .rmSlide {
+    display: none; /* hide the sub nav until requested */
+    position: absolute;
+    height: auto !important;
+
+    .rmItem {
+        float: none;
+        display: block;
+    }
+
+    .rmText {
+        float: none;
+    }
+
+    .rmLink,
+    .rsmLink {
+        color: $navbar-default-dropdown-link-color;
+        font-family: $navbar-default-dropdown-link-font-family;
+        font-size: $navbar-default-dropdown-link-font-size;
+        font-weight: $navbar-default-dropdown-link-font-weight;
+
+        .header-dark & {
+            color: $navbar-alt-dropdown-link-color;
+            font-family: $navbar-alt-dropdown-link-font-family;
+            font-size: $navbar-alt-dropdown-link-font-size;
+            font-weight: $navbar-alt-dropdown-link-font-weight;
+        }
+    }
+
+    .rmSeparator,
+    .rmVertical > .rmSeparator,
+    .MegaDropDownMenuSeperator > .rsmLink {
+        border-bottom: 1px $border-style $navbar-default-separator-color;
+
+        .header-dark & {
+            border-bottom-color: $navbar-alt-separator-color;
+        }
+    }
+
+    .rmSeparator, .rmVertical > .rmSeparator {
+        margin: 0 $navbar-padding-horizontal;
+    }
+
+    .rmFocused > .rmLink,
+    .rmSelected > .rmLink,
+    .rsmSelected > .rsmLink,
+    .rsmTwoLevels > .rsmItem.rsmSelected > .rsmLink {
+        background-color: $navbar-default-dropdown-link-active-bg;
+        color: $navbar-default-dropdown-link-active-color;
+
+        &.header-dark {
+            background-color: $navbar-alt-dropdown-link-active-bg;
+            color: $navbar-alt-dropdown-link-active-color;
+        }
+    }
+
+    .rmLink,
+    .rsmLink,
+    .rsmTwoLevels > .rsmItem > .rsmLink {
+        &:hover,
+        &:focus,
+        &.rmFocused {
+            background-color: $navbar-default-dropdown-link-hover-bg;
+            color: $navbar-default-dropdown-link-hover-color;
+
+            .header-dark & {
+                background-color: $navbar-alt-dropdown-link-hover-bg;
+                color: $navbar-alt-dropdown-link-hover-color;
+            }
+        }
+    }
+
+    &.rmLevel1 .rmGroup {
+        /* for second-level sub-nav and beyond,
+         * we want to indent the nav to give separation */
+        margin-left: 0;
+    }
+
+    .rmExpandRight, .rmGroup a.rmLink.rmExpandRight {
+        background-image: url('images/ResponsiveNav.png');
+        background-position: 110% -200px;
+        background-repeat: no-repeat;
+    }
+
+    .MegaDropDownMenu {
+        padding-top: ($navbar-padding-vertical / 2);
+        padding-bottom: ($navbar-padding-vertical / 2);
+    }
+
+    .rsmTwoLevels {
+        > .rsmItem {
+            margin-bottom: .5em;
+        }
+
+        > .rsmItem > .rsmLink,
+        > .rsmItem.rsmDisabled > .rsmLink:hover,
+        > .rsmItem.rsmDisabled > .rsmLink:focus {
+            text-transform: uppercase;
+            color: $navbar-default-dropdown-header-color;
+            font-weight: $navbar-default-link-weight;
+            letter-spacing: $navbar-default-link-letter-spacing;
+
+            .header-dark & {
+                color: $navbar-alt-dropdown-header-color;
+                font-weight: $navbar-alt-link-weight;
+                letter-spacing: $navbar-alt-link-letter-spacing;
+            }
+        }
+    }
+
+    .MegaDropDownMenuSeperator .rsmLink {
+        padding: 0;
+    }
+
+    @include respond-to('grid small') {
+        width: 100% !important;
+        left: 0 !important;
+
+        ul.rmVertical, ul.rmHorizontal, ul.rmRootScrollGroup {
+            float: none;
+        }
+
+        .rmSlide {
+            /* for right expanded items, expand below on extra small screens */
+            left: 0 !important;
+            margin-top: ($navbar-height - 1px);
+        }
+
+        .rmToggleHandles .rmSlide .rmText {
+            /* if we have toggles on we don't want to add the extra padding */
+            padding-right: $navbar-padding-horizontal;
+        }
+
+        .rmToggleHandles .rmExpandRight,
+        .rmToggleHandles .rmGroup a.rmText.rmExpandRight {
+            /* if toggle handles are on we don't want to display the arrow twice*/
+            background-image: none;
+        }
+    }
+}
+
+.RadMenu.RadMenu_#{$theme-family} {
+    @include respond-to('grid large') {
+        .rmItem { 
+            white-space: nowrap; 
+        }
+        ul.rmRootGroup {
+            width: auto;
+            float:right;
+            > .rmItem {
+                float: left;
+                clear: none;
+
+                > .rmLink {
+                    margin: 0;
+                }
+            }
+        }
+        .rmSlide {
+            .rmGroup { margin: 0; }
+
+            .rmItem {
+                float: none;
+                display: block;
+            }
+
+            .rmLink { margin: 0; }
+        }
+
+        .rmToggle, 
+        .rmRootGroup .rmRootLink .rmToggle { display: none; }
+
+        /* Make sure mega menus with two levels are an adequate width */
+        .rsmTwoLevels {
+            /*Standard Width*/
+            min-width: 190px !important;
+        }
+
+        .LargerWidth10 {
+            /*minimum width for more than menu items with 10-13 chars*/
+            min-width: 210px !important;
+            .rsmLink {
+                width: 130px;
+            }
+        }
+
+        .LargerWidth14 {
+            /*minimum width for more than menu items with 14-17 chars*/
+            min-width: 280px !important;
+            .rsmLink {
+                width: 150px;
+            }
+        }
+
+        .LargerWidth18 {
+            /*minimum width for more than menu items with 18-21 chars*/
+            min-width: 350px !important;
+            .rsmLink {
+                width: 185px;
+            }
+        }
+
+        .LargerWidth22 {
+            /*minimum width for more than menu items with 22+ chars*/
+            min-width: 450px !important;
+            .rsmLink {
+                width: 225px;
+            } 
+        }
+    }
+}

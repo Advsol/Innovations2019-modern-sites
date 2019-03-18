@@ -1,0 +1,179 @@
+﻿/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+/* set up button base styles */
+.btn, 
+.TextButton, 
+.TextButtonWithImage, 
+.RadUpload .ruButton, 
+.RadUploadProgressArea .ruButton, 
+#masterHeaderActionArea a {
+    display: inline-block;
+    margin-bottom: 0; // For input.btn
+    font-weight: $btn-font-weight;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 1px solid transparent;
+    white-space: normal;
+    text-decoration: none;
+    @include button-size($btn-padding-vertical, $btn-padding-horizontal, $font-size-base, $line-height-base, $btn-border-radius);
+    user-select: none;
+    @include transition(background $transition-speed ease-out);
+
+    &:focus {
+        @include tab-focus();
+    }
+
+    &:hover,
+    &:focus,
+    &:visited {
+        //color: $btn-default-color;
+        text-decoration: none;
+    }
+
+    &:active,
+    &.active {
+        outline: 0;
+        background-image: none;
+        @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] &,
+    &.aspNetDisabled {
+        pointer-events: none; // Future-proof disabling of clicks
+        opacity: .55;
+        @include box-shadow(none);
+    }
+
+}
+
+/* default button */
+.btn, 
+.TextButton, 
+.TextButtonWithImage,
+.ruButton, 
+#masterHeaderActionArea a,
+.RadGrid input.TextButton {
+    @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border, $btn-style, $btn-default-shadow);
+}
+/* some Telerik overrides */
+.ruButton {
+    background-color: $btn-default-bg !important;
+    color: $btn-default-color !important;
+    cursor: pointer;
+    border-radius: $btn-border-radius !important;
+}
+
+.RadUpload.RadUpload .ruBrowse,
+.RadUpload.RadUpload .ruRemove {
+    height: auto;
+    padding: $btn-padding-vertical $btn-padding-horizontal;
+    line-height: $line-height-base;
+    border-radius: $btn-border-radius;
+}
+
+/* primary button */
+.PrimaryButton, 
+.SaveAndClose, 
+.SaveAs, 
+.UsePrimaryButton .TextButton, 
+.UsePrimaryButton .TextButtonWithImage, 
+#masterHeaderActionArea a,
+.RadGrid input.PrimaryButton {
+    @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border, $btn-style, $btn-primary-shadow);
+}
+
+/* white button */
+.WhiteButton {
+    @include button-variant($text-color, $white, $white, $btn-style, $btn-primary-shadow);
+}
+
+/* text button */
+.TextButtonOutline {
+    @include button-outline-variant($btn-default-bg, $btn-default-color);
+}
+
+/* primary button outline */
+.PrimaryButtonOutline {
+    @include button-outline-variant($btn-primary-bg, $btn-primary-color);
+}
+
+/* white button outline */
+.WhiteButtonOutline {
+    @include button-outline-variant($white, $text-color);
+}
+
+/* Facebook sign in button */
+.TextButton.Facebook {
+    @include button-variant($btn-facebook-color, $btn-facebook-bg, $btn-facebook-border, $btn-style, $btn-facebook-shadow);
+}
+
+/* LinkedIn sign in button */
+.SignInButton.LinkedIn {
+    @include button-variant($btn-linkedin-color, $btn-linkedin-bg, $btn-linkedin-border, $btn-style, $btn-linkedin-shadow);
+}
+
+.MediumButton,
+.UseMediumButton .TextButton,
+.UseMediumButton .TextButtonWithImage {
+    font-size: 120% !important;
+    padding: ($btn-padding-vertical + 4px) ($btn-padding-horizontal + 4px) !important;
+
+    @if $btn-border-radius > 0 {
+        border-radius: ($btn-border-radius + 3px);
+    }
+}
+
+.LargeButton,
+.UseLargeButton .TextButton,
+.UseLargeButton .TextButtonWithImage {
+    font-size: 150% !important;
+    padding: ($btn-padding-vertical + 7px) ($btn-padding-horizontal + 7px) !important;
+
+    @if $btn-border-radius > 0 {
+        border-radius: ($btn-border-radius + 6px);
+    }
+}
+
+///* Style buttons to look like links for deemphasis */
+//.LinkButton {
+//    background-color: transparent;
+//    color: $link-color;
+//    padding: 0! important;
+//    &:hover, &:active, &:focus {
+//        color: $link-color-hover;
+//        background-color: transparent;
+//    }
+//}
+
+.CalloutArea1, 
+.CalloutArea2 {
+    .btn.PrimaryButton, 
+    .TextButton.PrimaryButton, 
+    .TextButtonWithImage.PrimaryButton {
+        color: $white;
+        background-color: $color-neutral;
+        &:hover, 
+        &:active, 
+        &:focus {
+            color: $white;
+            background-color: darken($color-neutral, 12%);
+        }
+    }
+}
+
+/* Generic red and green buttons to be used for all themes (styling is not theme dependant) */
+.btn.DangerButton {
+    color: #fff;
+    background: #c74b49;
+}
+
+.btn.SuccessButton {
+    color: #fff;
+    background: #008943;
+} 

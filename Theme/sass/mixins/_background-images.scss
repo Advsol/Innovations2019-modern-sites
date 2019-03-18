@@ -1,0 +1,15 @@
+﻿// From iMIS 20.3
+
+@mixin bg-img-cover() {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin img-object-fit-container() {
+    object-fit: cover !important;
+    object-position: 50% 50%;
+    width: 100%;
+    max-width: initial;
+    height: 100% !important;
+}

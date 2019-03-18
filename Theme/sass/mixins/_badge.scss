@@ -1,0 +1,41 @@
+﻿// From iMIS 20.3
+
+// Badges
+// -------------------------
+// Badges are indicate numbers
+// such as the number of items in your cart.
+// These mixins may be used together or separately
+// depending on need.
+@mixin badge-position($top: null, $right: null, $bottom: null, $left: null) {
+    position: absolute;
+    @include position($top, $right, $bottom, $left);
+    text-align: center;
+}
+
+@mixin badge-style($color: $badge-color, $bg-color: $badge-bg, $border-radius: $badge-border-radius) {
+    color: $color;
+    background-color: $bg-color;
+    border-radius: $border-radius;
+    font-size: $badge-font-size;
+    line-height: $badge-line-height;
+    padding: 0 2px 1px;
+    @include box-shadow($badge-box-shadow);
+}
+
+@mixin position($top: null, $right: null, $bottom: null, $left: null) {
+    @if ($top != null) {
+        top: $top;
+    }
+
+    @if ($right != null) {
+        right: $right;
+    }
+
+    @if ($bottom != null) {
+        bottom: $bottom;
+    }
+
+    @if ($left != null) {
+        left: $left;
+    }
+}

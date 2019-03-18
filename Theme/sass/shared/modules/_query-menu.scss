@@ -1,0 +1,25 @@
+﻿/* Filter Panel (Query Menu)
+   ========================================================================== */
+/* This is an alternate style for the Query Menu filter panel */
+.FilterPanel {
+    @if ($theme-name != 'Orion') {
+        background-color: $color-alt-bg;
+    }
+    border: none !important;
+    margin-top: -3px;  
+    
+    .PanelTitle, 
+    .panel-title {
+        background-image: none;
+        padding-left: 0.1em;
+        line-height: normal;
+        margin-left: 0;
+        font-size: $h2-font-size * .82353;
+    }
+
+    .PanelHead.Distinguish,
+    .panel-heading.Distinguish {
+        border: none;
+        min-height: 1em;      
+    }
+}

@@ -1,0 +1,13 @@
+﻿// From iMIS 20.3
+
+@mixin raddatapager-metro() {
+    border: none;
+    background-color: transparent;
+
+    .rdpNumPart a.rdpCurrentPage, .rdpNumPart a.rdpCurrentPage:hover,
+    .rdpPageFirst:hover, .rdpPagePrev:hover, .rdpPageNext:hover, .rdpPageLast:hover,
+    .rdpPagerButton {
+        background-color: $color-base;
+        border-color: $color-base;
+    }
+}

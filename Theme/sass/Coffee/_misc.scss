@@ -1,0 +1,645 @@
+﻿/* ==========================================================================
+   MISCELLANEOUS
+   ========================================================================== */
+/* Classes that can be used for iParts and HTML content */
+
+/* Titles */
+h1.BigHeader, .h1.BigHeader {
+    background-color: transparent;
+    color: $h1-color;
+}
+
+/* Use class ContentBlockPrimary to give a block of content extra emphasis */
+.ContentBlockPrimary {
+    padding: 20px; 
+    background-color: $color-alt-bg;
+}
+
+/* Make the titles on secondary columns smaller - used on the Member home page */
+.SecondaryColumn {
+    h2, 
+    .PanelTitle,
+    .panel-title {
+        font-family: inherit;
+        font-weight: bold;
+        font-size: 90%;
+        color: $gray-light;
+        text-transform: uppercase;
+    }
+
+    h2, 
+    .PanelHead, 
+    .TitleBarCaption,
+    .panel-heading {
+        border-bottom: none;
+    }
+
+    .PanelHead,
+    .panel-heading {
+        padding: 0 4px;
+    }
+
+    .CommunityBlogItem {
+        padding: 0 0 0 10px;
+        .PanelFieldValue {
+            padding: 0;
+        }
+    }
+
+    .CommunityItemTitle {
+        font-weight: normal;
+        font-size: inherit;
+    }
+
+    .RadGrid .rgRow td, 
+    .RadGrid .rgNoRecords td {
+        padding: 4px;
+    }
+}
+
+/* Use class ContentBlockPictureArea to surround an image within a ContentBlockPrimary area */
+.ContentBlockPictureArea, 
+.ContentBlockLeft
+{
+    width: 250px;
+    float: left;
+    margin-right: .5em;
+    margin-bottom: .5em;
+
+    &.FloatRight {
+        float: right;
+        margin-left: .5em;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto !important;
+    }
+}
+
+.BlockList {
+    ul { 
+        margin: 0; 
+        padding: 0;
+    }
+
+    li      { list-style: none; }
+
+    a {
+        display: block;
+        text-decoration: none;
+        padding: 20px;
+        &:hover {
+            background-color: darken($color-alt-bg, 3%);
+        }
+    }
+
+    a span {
+        text-decoration: underline; 
+    } 
+
+    p { 
+        color: $text-color; 
+        margin-bottom: 0;
+    }
+}
+
+.TaggedListColumns .TaggedListPanel {
+    max-width: $container-lg;
+    margin-left: auto;
+    margin-right: auto;
+    // faking CSS grid auto-placement for IE compatibility
+    // https://css-tricks.com/css-grid-in-ie-faking-an-auto-placement-grid-with-gaps/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: ($grid-gutter-width / 2) 0 0 ($grid-gutter-width / 2);
+
+    .content-tagged-tall {
+        float: none;
+        border: 0 solid transparent;
+        border-width: 0 ($grid-gutter-width / 2) ($grid-gutter-width / 2) 0;
+    }
+
+    > div:last-child .TextButton {
+        /* Hide the Next Button */
+        display: none;
+    }
+}
+
+/* Tagged list format, styled similar to BlockList */
+.BlockTLItem {
+    display: block;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+.BlockTLItem, 
+.BlockList li {
+    border-bottom: 1px $border-style $border-color;
+}
+
+.BlockTLItem, 
+.BlockList {
+    h4 {
+        font-size: 110%;
+        font-weight: normal;
+    }
+}
+
+/* Tall tagged list items */
+/* Best when used in conjunction with the TaggedListColumns class in the Zone CSS */
+.content-tagged-tall {
+    min-width: 15em;
+    max-width: (100% / 3);
+    float: left;
+
+    &:first-child {
+        margin-left: 0;
+    }
+
+    a:not(.TextButton) {
+        text-decoration: none;
+
+        &, &:visited {
+            color: $color-callout;
+        }
+
+        &:hover, &:focus, &:active {
+            color: darken($color-callout, 8%);
+        }
+    }
+
+    .item-image-wrapper {
+        height: 15em;
+        overflow: hidden;
+        position: relative;
+
+        &:after {
+            content: '';
+            display: block;
+            background-color: fade-out($color-base, .8);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: all .2s ease;
+        }
+
+        img {
+            @include img-object-fit-container();
+        }
+
+        .item-image-inner {
+            width: 100%;
+            height: 100%;
+            transition: all .2s ease;
+        }
+    }
+
+    .item-description {
+        padding: $panel-body-padding;
+        background-color: $white;
+    }
+
+    &:hover {
+        .item-image-wrapper:after {
+            opacity: 0;
+        }
+
+        .item-image-inner {
+            transform: scale(1.1);
+        }
+    }
+
+    &:nth-child(2) {
+        transition-delay: .2s !important;
+    }
+
+    &:nth-child(3) {
+        transition-delay: .3s !important;
+    }
+}
+
+/* PublishDate and ReadMoreLink are used in the Block tagged list format */
+.PublishDate {
+    @include publish-date;
+}
+
+/* Use on the blockquote element for a styled quote */
+.Quote
+{
+    margin: 1.5em .7em 1.5em 0;
+    padding: 1.5em .7em;
+    quotes: "\201C" "\201D" "\201C" "\201D";
+    font-weight: normal;
+    &:before {
+        content: open-quote;
+        margin-right: 0.25em;
+        vertical-align: -0.4em;
+        font-size: 500%;
+        line-height: 0.1em;
+    }
+    p { display: inline; }
+    cite {
+        display: block;
+        margin-left: 1em;
+        margin-top: .5em;
+        font-style: italic;
+        &:before { content: "— "; }
+    }
+
+    @include respond-to('tablets and up') {
+        font-size: 120%;
+        cite {
+            font-size: 90%;
+            margin-left: 2em;
+        }
+    }
+}
+.QuoteStyle2 { border-left-color: $color-secondary-a; }
+
+
+/* CalloutPanelField1 can be used as a wrapper for PanelFields, or on the PanelField directly, to callout the first label. */
+.CalloutPanelField1 .PanelField label:first-child, 
+.CalloutPanelField1.PanelField label:first-child, 
+.CalloutPanelField1 .PanelField .Label:first-child, 
+.CalloutPanelField1.PanelField .Label:first-child {
+    position: relative;
+    padding: 15px;
+    margin: 0 0 1em;
+    color: $callout1-color;
+    background: $color-callout;/*$callout1-bg*/
+    width: auto;
+    border-radius: $callout1-border-radius;
+
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: -8px; /* value = - border-top-width - border-bottom-width */
+        left: 30px; /* controls horizontal position */
+        border-width: 8px 8px 0; /* vary these values to change the angle of the vertex */
+        border-style: solid;
+        border-color: $color-callout transparent;/*$callout1-bg*/
+        /* reduce the damage in FF3.0 */
+        display: block; 
+        width: 0;
+    }
+}
+
+/* TotalBox can be used as a wrapper for PanelFields, or on the PanelField directly, to visually distinguish a calculated total. */
+.TotalBox
+{
+    border-color: $border-color;
+}
+
+.TotalBox label
+{
+    background-color: $color-callout;
+    color: $white;
+    padding:.25em .75em;
+    color: $white;
+}
+
+/* Add zone style "CCOGrayBg" to give CCO content a gray background */
+.CCOGrayBg .RadMultiPage
+{
+    background-color: $color-alt-bg;
+}
+
+.CCOGrayBg .yui-g
+{
+    float: none;
+}
+
+/* Add zone style "TitleBarNoBorder" to remove the bottom border from the title bar caption */
+.TitleBarNoBorder .TitleBarCaption, .TitleBarNoBorder .PanelHead.Distinguish, .TitleBarNoBorder .panel-heading.Distinguish
+{
+    border-bottom: none;
+}
+
+/* Use the FeatureText class to make a block of text larger for emphasis */
+.FeatureText {
+    color: lighten($text-color, 15%);
+    font-size: 150%;
+    line-height: 170%;
+}
+
+/* Use the CenterText class to center the text within the iPart */
+.CenterText
+{
+    text-align: center;
+}
+
+.FullWidthButtons {
+    .btn, .TextButton {
+        display: block;
+    }
+}
+
+/* Use class FeatureActionLink on a link to call attention to it */
+a.FeatureActionLink {
+    @include transition(all $transition-speed ease 0);
+    font-family: $headings-font-family;
+    font-size: 110%;
+    font-weight: $headings-font-weight;
+    line-height: 1.5em;
+    padding: 8px 0;
+    text-decoration: none;
+    
+    @include respond-to('desktops and up') {
+        font-size: 150%;
+    }
+    
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+/* Spotlight
+   ========================================================================== */
+
+/* Featured items display */
+.Spotlight {
+    text-align: center;
+
+    img, h4 {
+        text-align: center;
+    }
+
+    .ImageWrapper {
+        @include respond-to('tablets and up') {
+            height: 160px;
+        }
+    }
+
+    .TextButton, .btn {
+        margin-top: 1em;
+    }
+
+    p {
+        text-align: center;
+        padding-top: 0.4em;
+    }
+
+    a img {
+        @include transition(opacity $transition-speed);
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+}
+
+.SpotlightRow {
+    margin-bottom:1.2em;
+    @include clearfix();
+    @include respond-to('tablets and up') {
+        
+        &.ThreeAcross .Spotlight {
+            float: left;
+            width: 33%;
+            padding-left: 2%;
+            padding-right: 2%;
+        }
+    }
+}
+
+
+/* Feature Area
+   ========================================================================== */
+.feature-area {
+    @include respond-to('grid large') {
+        padding-top: 8em;
+        padding-bottom: 6em;
+    }
+}
+
+.my-lg, .mt-lg {
+    margin-top: 4em;
+}
+.my-lg, .mb-lg {
+    margin-bottom: 4em;
+}
+
+/* Feature Header
+   ========================================================================== */
+.feature-header {
+    text-align: center;
+    color: $text-color;
+    border-bottom: none;
+    margin-bottom: .4em;
+    font-size: 4rem;
+    max-width: 25em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature-lead {
+    text-align: center;
+    max-width: 20em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Feature Link
+   ========================================================================== */
+@mixin feature-link-text($bg-color) {
+    .feature-link-text {
+        background-color: $bg-color;
+        background-color: fade-out($bg-color, .25);
+    }
+    &:hover .feature-link-text {
+        background-color: darken($bg-color, 10%);
+        background-color: fade-out(darken($bg-color, 10%), .25);
+    }
+}
+
+.feature-link-with-image {
+    margin-bottom: 1em;
+
+    &, &:hover, &:active, &:visited {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .feature-link-wrapper {
+        @include bg-img-cover();
+        height: 17em;
+        margin-bottom: 20px;
+    }
+
+    .feature-link-text {
+        height: 100%;
+        padding: .8em;
+        font-size: 110%;
+
+        @include respond-to('smartphones and up') {
+            width: 45%;
+        }
+
+        h1, h2, h3, h4, h5 {
+            margin-top: 0;
+        }
+    }
+    &.feature-link-1 {
+        @include feature-link-text($color-callout);
+    }
+    &.feature-link-2 {
+        @include feature-link-text($color-base);
+    }
+}
+
+/* Feature Text Inline
+   ========================================================================== */
+.feature-text-inline {
+    color: $color-callout;
+}
+
+/* Header Links
+   ========================================================================== */
+.header-link {
+    border-bottom: none;
+    a {
+        text-decoration: none;
+
+        &, &:visited {
+            color: $text-color;
+        }
+        &:hover, &:active, &:focus {
+            color: $link-color;
+        }
+    }
+}
+
+/* Image Banners
+   ========================================================================== */
+/* use these classes to get a particular background image on an element */
+.bg-img-conference-tall {
+    background-color: #081337;
+    background-image: url('../../images/samples/annualconference/conferencebannertall.jpg');
+}
+.bg-img-conference-small {
+    background-color: #081337;
+    background-image: url('../../images/samples/Member/cairnsnight.jpg');
+}
+.bg-img-tiger-tall {
+    background-color: #04080B;
+    background-image: url('../../images/samples/donor/tiger-tall.jpg');
+    background-position: center center;
+}
+.bg-img-red-panda {
+    background-color: #57574b;
+    background-image: url('../../images/samples/Donor/red-panda.jpg');
+}
+.bg-img-tiger-swimming {
+    background-color: #1c1705;
+    background-image: url('../../images/samples/Donor/tiger-swimming.jpg');
+}
+.bg-img-highland-cow {
+    background-color: #e4e0cd;
+    background-image: url('../../images/samples/Donor/highland-cow.jpg');
+}
+.bg-img-volunteer-canoes {
+    background-color: #8aa15b;
+    background-image: url('../../images/samples/Donor/volunteer-canoes.jpg');
+}
+.bg-img-elephant-with-mountains {
+    background-color: #748610;
+    background-image: url('../../images/samples/Donor/elephant-with-mountains.jpg');
+}
+.bg-img-wildlife-refuge {
+    background-color: #6d7f2d;
+    background-image: url('../../images/samples/Donor/wildlife-refuge.jpg');
+}
+.bg-img-poplar-trees {
+    background-color: #737e23;
+    background-image: url('../../images/samples/Donor/poplar-trees.jpg');
+    background-position: top center !important;
+}
+.bg-img-swamp {
+    background-color: #bbbdb8;
+    background-image: url('../../images/samples/Donor/swamp.jpg');
+}
+
+.bg-img-roseate-terns {
+    background-color: #8f9949;
+    background-image: url('../../images/samples/Donor/roseate-terns.jpg');
+    background-position: center 88% !important;
+}
+
+.banner-tall, .banner-short {
+    text-decoration: none;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border-radius: 0;
+
+    &,&:visited, &:active, &:hover, &:focus, h2 {
+        color: #fff;
+    }    
+}
+
+.banner-text h2 {
+    font-size: 100%;
+}
+
+.banner-tall {
+    height: 500px;
+    max-width: 300px;
+
+    .banner-text {
+        position: absolute;
+        bottom: 0;
+        padding: 10px;
+        background-color: #000;
+        background-color: rgba(0,0,0,.75);
+        border-radius: 0 0 5px 5px;
+    }
+}
+
+.banner-short {
+    min-height: 150px;
+    max-width: 300px;
+     
+    .banner-text {
+        padding: 5px;
+        min-height: 150px;
+        background-color: #000;
+        background-color: rgba(0,0,0,.2);
+        border-radius: 5px;
+    }
+}
+
+
+/* Image Copyright Statements
+   ========================================================================== */
+.img-copyright {
+    font-size: 70%;
+}
+
+/* Donation page enhancements
+   ========================================================================== */
+   /* To enhance the display of a donation page, apply the donate-page class to the Donation Creator iPart's CSS Class */
+
+.donate-page .GiftItemName {
+    color: $color-callout;
+    font-size: $h1-font-size;
+}
+
+.donate-page .GiftItemDescription {
+    font-size: 125%;
+}
+
+
+.RelatedItemsHorizontalEffect li:hover {
+    transform: scale(1.06);
+    border-radius: 0;
+    background-color: transparent;
+}
+/* Fix product name overlapping other content */
+ul.RelatedItemsHorizontal li, .RelatedItemsHorizontal ul.rrItemsList li{
+    height:auto;
+}

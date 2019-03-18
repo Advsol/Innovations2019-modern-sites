@@ -1,0 +1,113 @@
+﻿// From Bootstrap 3.3.0
+
+// Button variants
+// -------------------------
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+// Style options: 'flat' (default), 'pushable', 'light gradient'
+@mixin button-variant($color, $background, $border, $style: 'flat', $shadow: transparent) {
+    color: $color;
+    text-decoration: none;
+
+    @if ($style == 'light gradient') {
+        background-color: $background;
+        @include gradient-y($background, darken($background, 3%));
+        @include box-shadow ($box-shadow-base);
+        //text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+        border-width: 0;
+    }
+    @else {
+        background-color: $background;
+        border-color: $border;
+    }
+
+    @if ($style == 'pushable') {
+        position: relative;
+        @include box-shadow(0px 5px 0 0 $shadow);
+    }
+
+    &:hover, &:focus, &:active, &:visited {
+        color: $color;
+
+        @if ($style == 'pushable') {
+            background-color: darken($background, 4%);
+            border-color: darken($border, 8%);
+            @include box-shadow(0px 5px 0 0 darken($shadow, 8%));
+        }
+        @else {
+            background-color: darken($background, 8%);
+            border-color: darken($border, 12%);
+        }
+
+        @if ($style == 'light gradient') {
+            @include gradient-y(darken($background,5%), darken($background, 8%));
+        }
+    }
+    &:active {
+        background-image: none;
+
+        @if ($style == 'pushable') {
+            top: 3px;
+            @include box-shadow(0px 2px 0 0 darken($shadow, 8%), inset 0 3px 5px rgba(0,0,0,.125));
+        }
+    }
+    &[disabled], fieldset[disabled] &, &.aspNetDisabled {
+        &, &:hover, &:focus, &:active {
+            background-color: $background;
+            border-color: $border;
+        }
+    }
+}
+
+@mixin button-outline-variant($color, $color-hover: color-yiq($color), $active-background: $color, $active-border: $color) {
+    color: $color;
+    border-color: $color;
+    background-color: transparent;
+
+    &:hover, &:focus {
+        color: $color-hover;
+        background-color: $active-background;
+        border-color: $active-border;
+    }
+
+    // TODO: review this
+    //&:focus,
+    //&.focus {
+    //    box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
+    //}
+
+    &[disabled], fieldset[disabled] &, &.aspNetDisabled {
+        &, &:hover, &:focus, &:active {
+            color: $color;
+            background-color: transparent;
+        }
+    }
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    .show > &.dropdown-toggle {
+        color: color-yiq($active-background);
+        background-color: $active-background;
+        border-color: $active-border;
+
+        // TODO: review this
+        //&:focus {
+            // Avoid using mixin so we can pass custom focus shadow properly
+            //@if $enable-shadows and $btn-active-box-shadow != none {
+            //    box-shadow: $btn-active-box-shadow, 0 0 0 $btn-focus-width rgba($color, .5);
+            //}
+            //@else {
+            //    box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
+            //}
+        //}
+    }
+}
+
+// Button sizes
+// -------------------------
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: $border-radius;
+}
