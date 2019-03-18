@@ -1,5 +1,7 @@
-# Innovations2019-modern-sites
-Slides and resources for iNNOVATIONS 2019 presentation Creating Modern Website Designs in RiSE
+# Creating Modern Website Designs in RiSE
+Included in this repository are assets so you can include the Latte theme (demoed at iNNOVATIONS 2019) in your instance of iMIS. Please note this website and theme are for demonstration purposes only and have only been tested in Chrome for Windows 10 and support across multiple devices and browsers (looking at you, Internet Explorer...) are not guaranteed. Additionally, the theme was designed for iMIS Cloud Enterprise version 20.3.44 and some things may not work as expected in earlier versions of iMIS.
+
+A demo of this site and theme is currently available at <https://imistour15132.imiscloud.com/EcoCauses/>.
 
 ## Website and theme installation instructions
 To install the demo website and theme follow these steps:
@@ -40,3 +42,6 @@ Please note: it's a best practice to use the latest _stable_ version of any Java
 **Fonts:** [Adobe Fonts](https://fonts.adobe.com/)  
 
 **Photos & graphics:** [iStockPhoto](https://www.istockphoto.com/), [CreativeMarket](https://creativemarket.com/)
+
+## Support
+Please feel free to ask questions or suggest changes but please note that ongoing support for this repository is not guaranteed. A supported version of this site and theme will be available in a future release of iMIS.
