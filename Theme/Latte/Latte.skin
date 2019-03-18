@@ -1,0 +1,241 @@
+﻿<%@ Register TagPrefix="asi" TagName="PageNavR" Src="~/AsiCommon/Controls/Navigation/PageNavR.ascx" %>
+<%@ Register TagPrefix="asi" TagName="PrimaryNavigation" Src="~/iParts/Website/AsiControls/PageNavRControl.ascx" %>
+<%@ Register TagPrefix="asi" TagName="SubNavigation" Src="~/AsiCommon/Controls/Navigation/SubNavigation.ascx" %>
+
+<asi:PageNavR runat="server" Skin="Coffee" EnableEmbeddedSkins="false" EnableMegaDropDownMenu="True" MenuRenderMode="Classic"
+    MegaDropDownMenuShowStartingNode="False" MaxDataBindDepth="3" MegaDropDownMenuRepeatColumns="2" EnableRootItemScroll="False"
+    EnableAutoScroll="False" ShowToggleHandle="True" />
+
+<asi:PrimaryNavigation runat="server" Skin="Coffee" EnableEmbeddedSkins="false" EnableMegaDropDownMenu="True" MenuRenderMode="Classic"
+    MegaDropDownMenuShowStartingNode="False" MaxDataBindDepth="3" MegaDropDownMenuRepeatColumns="2" EnableRootItemScroll="False"
+    EnableAutoScroll="False" ShowToggleHandle="True" />
+
+<telerik:RadSiteMap runat="server" SkinID="MegaDropDown" EnableEmbeddedSkins="False" Skin="Coffee" />
+
+<asi:SubNavigation runat="server" EnableEmbeddedSkins="False" Skin="Coffee" SingleExpandPath="true" ShowLineImages="false" TreeRenderMode="Lightweight" />
+
+<%-- Default RadToolTip - used by InfoIcon control --%>
+<telerik:RadToolTip runat="server" skin="Telerik" RenderInPageRoot="true" Animation="None" ShowDelay="0" />
+
+<telerik:RadAsyncUpload runat="server" skin="Coffee" EnableEmbeddedSkins="False" Width="350px">
+    <Localization Select="Select" />  
+    <Localization Remove="Remove" /> 
+</telerik:RadAsyncUpload>
+
+<telerik:RadAjaxLoadingPanel runat="server" SkinID="AjaxLoadingPanel" MinDisplayTime="1" InitialDelayTime="0"
+    Transparency="50" BackColor="LightGray" BackgroundPosition="Center" Width="100%" Skin="Default" />
+    
+<telerik:RadRotator runat="server" Width="100%" ItemWidth="110" RotatorType="SlideShowButtons"  
+    ScrollDuration="800" CssClass="RelatedItemsHorizontal" WrapFrames="false" SkinID="RelatedItems" Skin="Metro">
+    <SlideShowAnimation Duration="500" Type="Fade" />
+</telerik:RadRotator>
+      
+<telerik:RadTreeView runat="server" Skin="Vista" CollapseAnimation-Duration="1" ExpandAnimation-Duration="1" LoadingStatusPosition="None" />  
+<telerik:RadTabStrip runat="server" Skin="MetroTouch" />
+<telerik:RadTabStrip runat="server" SkinID="SubTabs" Skin="SubTabStrip" CssClass="SubTabStrip" EnableEmbeddedSkins="false" ShowBaseLine="false" />
+<telerik:RadUpload runat="server" Skin="Coffee" EnableEmbeddedSkins="False" />
+<telerik:RadScheduler runat="server" Skin="Metro" />
+<telerik:RadDialogOpener runat="server" Skin="Metro" />
+
+<telerik:RadButton runat="server" SkinID="PanelCommandButtonEdit" CssClass="IconSprite EditIcon">
+    <Image ImageUrl="Images/IconSprite.png" />
+</telerik:RadButton>
+<telerik:RadButton runat="server" SkinID="PanelCommandButtonAdd" CssClass="IconSprite AddIcon" >
+    <Image ImageUrl="Images/IconSprite.png" />
+</telerik:RadButton>
+<telerik:RadButton runat="server" SkinID="PanelCommandButtonDelete" CssClass="IconSprite DeleteIcon">
+    <Image ImageUrl="Images/IconSprite.png" />
+</telerik:RadButton>
+<telerik:RadButton runat="server" SkinID="PanelCommandButtonSave" CssClass="IconSprite SaveIcon">
+    <Image ImageUrl="Images/IconSprite.png" />
+</telerik:RadButton>
+<telerik:RadButton runat="server" SkinID="PanelCommandButtonConfigure" CssClass="IconSprite ConfigureIcon">
+    <Image ImageUrl="Images/IconSprite.png" />
+</telerik:RadButton>
+<telerik:RadButton runat="server" SkinID="MoveItemUpButton" CssClass="IconSprite UpIcon">
+    <Image ImageUrl="Images/IconSprite.png" />
+</telerik:RadButton>
+<telerik:RadButton runat="server" SkinID="MoveItemDownButton" CssClass="IconSprite DownIcon">
+    <Image ImageUrl="images/IconSprite.png" />
+</telerik:RadButton>
+<telerik:RadButton runat="server" SkinID="SaveItemButton" CssClass="IconSprite SaveIcon">
+    <Image ImageUrl="images/IconSprite.png" />
+</telerik:RadButton>
+<telerik:RadButton runat="server" SkinID="HideButton" Height="16" Width="16" >
+    <Image ImageURL="images/icon_detail.gif" />
+</telerik:RadButton>
+<asp:ImageButton runat="server" SkinID="PanelCommandButtonEdit" CssClass="IconSprite EditIcon" ImageUrl="images/Pixel.png" /> 
+<asp:Image runat="server" SkinID="PanelCommandButtonEdit" CssClass="IconSprite EditIcon" ImageUrl="images/Pixel.png" />
+<asp:ImageButton runat="server" SkinID="PanelCommandButtonAdd" CssClass="IconSprite AddIcon" ImageUrl="images/Pixel.png" />
+<asp:Image runat="server" SkinID="PanelCommandButtonAdd" CssClass="IconSprite AddIcon" ImageUrl="images/Pixel.png" />
+<asp:ImageButton runat="server" SkinID="PanelCommandButtonDelete" CssClass="IconSprite DeleteIcon" ImageUrl="images/Pixel.png" />
+<asp:Image runat="server" SkinID="PanelCommandButtonDelete" CssClass="IconSprite DeleteIcon" ImageUrl="images/Pixel.png" />
+<asp:ImageButton runat="server" SkinID="PanelCommandButtonSave" CssClass="IconSprite SaveIcon" ImageUrl="images/Pixel.png" />
+<asp:ImageButton runat="server" SkinID="MoveItemUpButton" CssClass="IconSprite UpIcon" ImageUrl="images/Pixel.png" />
+<asp:ImageButton runat="server" SkinID="MoveItemDownButton" CssClass="IconSprite DownIcon" ImageUrl="images/Pixel.png" />
+<asp:ImageButton runat="server" SkinID="SaveItemButton" CssClass="IconSprite SaveIcon" ImageUrl="images/Pixel.png" />
+<asp:ImageButton runat="server" SkinID="SelectButton" CssClass="IconSprite SelectIcon" ImageUrl="images/Pixel.png" />
+<asp:ImageButton runat="server" SkinID="CheckButton" CssClass="IconSprite CheckIcon" ImageUrl="images/Pixel.png" />
+<asp:Image runat="server" SkinID="CheckButton" CssClass="IconSprite CheckIcon" ImageUrl="images/Pixel.png" />
+<asp:ImageButton runat="server" SkinID="UndoButton" CssClass="IconSprite UndoIcon" ImageUrl="images/Pixel.png" />
+<asp:ImageButton runat="server" SkinID="ResetButton" CssClass="IconSprite ResetIcon" ImageUrl="images/Pixel.png" />
+<asp:ImageButton runat="server" SkinID="CancelButton" CssClass="IconSprite CancelIcon" ImageUrl="images/Pixel.png" />
+<asp:Image runat="server" SkinID="CancelButton" CssClass="IconSprite CancelIcon" ImageUrl="images/Pixel.png" />
+<asp:Image runat="server" SkinId="UndoImage" CssClass="IconSprite UndoIcon" ImageUrl="images/Pixel.png" />
+<asp:Image runat="server" SkinId="ResetImage" CssClass="IconSprite ResetIcon" ImageUrl="images/Pixel.png" />
+<asp:Image runat="server" SkinID="SocialNetworkImage" ImageUrl="images/Pixel.png" CssClass="SocialSprite" />
+<asp:Image runat="server" SkinId="ProgressBar" ImageUrl="images/progressbar.gif" />
+
+<asp:Image runat="server" SkinID="SmallIconGroups" CssClass="FeatureSprite SmallIcon GroupIcon" ImageUrl="images/Pixel.png" />
+<asp:Image runat="server" SkinID="SmallIconEvents" CssClass="FeatureSprite SmallIcon EventIcon" ImageUrl="images/Pixel.png" />
+<asp:Image runat="server" SkinID="SmallIconContacts" CssClass="FeatureSprite SmallIcon PersonIcon" ImageUrl="images/Pixel.png" />
+<asp:Image runat="server" SkinID="SmallIconProducts" CssClass="FeatureSprite SmallIcon CartIcon" ImageUrl="images/Pixel.png" />
+<asp:Image runat="server" SkinID="SmallIconQueries" CssClass="FeatureSprite SmallIcon FindIcon" ImageUrl="images/Pixel.png" />
+<asp:Image runat="server" SkinID="SmallIconAttachments" CssClass="FeatureSprite SmallIcon PaperclipIcon" ImageUrl="images/Pixel.png" />
+<asp:ImageButton runat="server" SkinID="SmallIconAttachments" CssClass="FeatureSprite SmallIcon PaperclipIcon" ImageUrl="images/Pixel.png" />
+
+<%-- Control used by SmartControl to display info icon and fly-out tooltip --%>
+<asiweb:InfoControl runat="server" BehaviorType="OnClick" AnimationsEnabled="true"
+    ButtonType="Image" ButtonImageUrl="images/icon_info.png" CssClass="moreInfo"
+     InfoCssClass="moreInfoPanel" Title="More Info" />
+     
+<%-- asiweb controls --%>
+<asiweb:Window runat="server" Skin="MetroTouch" />
+<asiweb:WindowManager runat="server" Skin="MetroTouch" />
+
+<asiweb:BusinessCalendar2 runat="server" />
+<telerik:RadDatePicker runat="server" Skin="Metro" RenderMode="Lightweight" />
+<telerik:RadTimePicker runat="server" Skin="Metro" RenderMode="Lightweight" />
+<telerik:RadDateTimePicker runat="server" Skin="Metro" RenderMode="Lightweight" />
+<asiweb:BusinessCheckBox runat="server" />
+<asiweb:BusinessComboBox runat="server" Skin="MetroTouch"  RenderMode="Lightweight" />
+<telerik:RadComboBox runat="server" Skin="MetroTouch"  RenderMode="Lightweight" />
+<asiweb:BusinessDropDownList runat="server" />
+<asiweb:BusinessHtmlEditor runat="server" Skin="Metro" />
+<asiweb:BusinessHyperLink runat="server" />
+<asiweb:BusinessLabel runat="server" />
+<asiweb:BusinessTextBox runat="server" />
+<asiweb:SmartControl runat="server" />
+<asiweb:StyledButton runat="server" />
+<asiweb:StyledHyperlink runat="server" />
+<asiweb:StyledLabel runat="server" />
+<asiweb:BusinessCalendar runat="server" CalendarButtonImageUrl="images/Calendar.gif" CssClass="CalendarInput" />
+<asiweb:Lister2 runat="server" HideResultsCssClass="ListSearchPrompt" TitleCssClass="GridTitlePanel" RefreshButtonType="Image" RefreshButtonImageUrl="~/AsiCommon/images/icon_refresh.gif" 
+    GridSkin="MetroTouch" />
+<telerik:RadGrid runat="server" Skin="MetroTouch" EnableAriaSupport="True" />
+<asiweb:BusinessDataGrid2 runat="server" Skin="MetroTouch" />
+<%-- Event registration price grid --%>
+<telerik:RadGrid runat="server" SkinId="RegistrationOptions" Skin="MetroTouch" EnableAriaSupport="True" />
+<telerik:RadDataPager runat="server" Skin="MetroTouch"/>
+<asiweb:MultiselectControl2 runat="server" />
+<asiweb:PanelTemplateColumn runat="server" CssClass="PanelColumn" />
+<asiweb:PanelTemplateControl runat="server" CssClass="StandardPanel" RoundedCorners="false" CollapsedImage="Images/ExpandIcon.png" ExpandedImage="Images/CollapseIcon.png" CollapsedText="" ExpandedText=""  />
+<asiweb:PanelTemplateControl2 runat="server" CollapsedImage="Images/ExpandIcon.png" ExpandedImage="Images/CollapseIcon.png" DisplayCollapseText="false" />
+
+<%-- Breadcrumb navigation --%>
+<asiweb:SiteMapPath runat="server" SkipLinkText="">
+    <PathSeparatorStyle CssClass="Disabled" />
+    <PathSeparatorTemplate>
+        &nbsp;&raquo;&nbsp;
+    </PathSeparatorTemplate>                              
+</asiweb:SiteMapPath>
+
+<%-- Images used in search results --%>
+<asp:Image runat="server" SkinID="EventSearchImage" ImageUrl="Images/icon_event.png" AlternateText="Calendar Icon" />
+<asp:Image runat="server" SkinID="GroupSearchImage" ImageUrl="Images/icon_group.png"  AlternateText="Group Icon" />
+<asp:Image runat="server" SkinID="CommunitySearchImage" ImageUrl="images/icon_group.png" AlternateText="Community Icon" />
+<asp:Image runat="server" SkinID="ProductSearchImage" ImageUrl="Images/icon_product.png"  AlternateText="Product Icon" />
+<asp:Image runat="server" SkinID="GiftSearchImage" ImageUrl="images/icon_fundraising.png" AlternateText="Gift Icon" />
+<asp:Image runat="server" SkinID="SearchDefaultImage" ImageUrl="Images/icon_content.png" AlternateText="Content Icon" />
+<asp:Image runat="server" SkinID="ImportantSearchImage" ImageUrl="images/icon_important.png" AlternateText="Important" />
+<asp:Image runat="server" SkinID="MembersOnlySearchImage" ImageUrl="images/icon_membersonly.png" AlternateText="Members Only"/>
+<asp:Image runat="server" SkinID="PersonSearchImage" ImageUrl="Images/icon_person.png" AlternateText="Person Icon" />
+<asp:Image runat="server" SkinID="OrgSearchImage" ImageUrl="Images/icon_org.png"  AlternateText="Organization Icon" />
+
+<%-- User message images --%>
+<asp:Image runat="server" SkinId="ErrorMessageIcon" ImageUrl="images/Error.png" AlternateText="Error icon"></asp:Image>
+<asp:Image runat="server" SkinId="WarningMessageIcon" ImageUrl="images/Warning.png" AlternateText="Warning icon"></asp:Image>
+<asp:Image runat="server" SkinId="InformationMessageIcon" ImageUrl="images/Note.png" AlternateText="Note icon"></asp:Image>
+
+<asp:Image runat="server" SkinId="AsiError" ImageUrl="images/AsiError.png" AlternateText="Error icon"></asp:Image>
+<asp:Image runat="server" SkinId="AsiWarning" ImageUrl="images/AsiWarning.png" AlternateText="Warning icon"></asp:Image>
+<asp:Image runat="server" SkinId="AsiInformation" ImageUrl="images/AsiInformation.png" AlternateText="Information icon"></asp:Image>
+<asp:Image runat="server" SkinId="AsiValidation" ImageUrl="images/AsiValidation.png" AlternateText="Validation icon"></asp:Image>
+<asp:Image runat="server" SkinId="AsiSuccess" ImageUrl="images/AsiSuccess.png" AlternateText="Success icon"></asp:Image>
+
+<asp:ImageButton runat="server" SkinID="EnableSurfToEditButton" ImageUrl="Images/enablesurftoedit.png" ToolTip="Easy edit is off. Click to turn it on." ImageAlign="Middle" CssClass="SurfEdit" AlternateText="Disabled easy edit icon" />
+<asp:ImageButton runat="server" SkinID="DisableSurfToEditButton" ImageUrl="Images/disablesurftoedit.png" ToolTip="Easy edit is on. Click to turn it off." ImageAlign="Middle" CssClass="SurfEdit" AlternateText="Enabled easy edit icon" />
+<asp:ImageButton runat="server" SkinID="EnableSurfToEditButton_Disabled" ImageUrl="Images/enablesurftoedit_disabled.png" ToolTip="Easy edit is not enabled on this page." ImageAlign="Middle" CssClass="SurfEdit" AlternateText="Disabled easy edit icon" />
+
+<%-- TitleBar Control. Action Box Image. --%>
+<asp:ImageButton runat="server" SkinID="TitleBarActionBoxButton" ImageUrl="Images/titlebaractionbox.gif" ToolTip="" ImageAlign="Middle" />    
+
+<%-- Validation summary error message. --%>
+<asp:ValidationSummary runat="server" CssClass="AsiValidationSummary" HeaderText="" ForeColor="" />  
+
+<%-- WCM --%>
+<asiweb:AsiWebPartZone BorderColor="Transparent" BorderStyle="solid" 
+    CssClass="WebPartZoneDesignTime" DragDropEnabled="true" DragHighlightColor="#00ff00" 
+    PartChromePadding="0" runat="server" TitleBarVerbButtonType="Link">
+    <MenuVerbStyle BorderWidth="0" ForeColor="#5e5e5e" />
+    <MenuVerbHoverStyle BackColor="#f3f3f3" />
+    <MenuPopupStyle BorderColor="#cccccc" BorderWidth="1" CellPadding="0" CellSpacing="0" 
+        CssClass="WebPartDesignMenu" Font-Names="verdana,tahoma,arial,helvetica" Width="95px" />
+    <MenuLabelStyle BorderWidth="0" ForeColor="#000" />
+    <PartTitleStyle CssClass="WebPartsTitleBar" ForeColor="#000" />
+    <PartChromeStyle BorderColor="#e5e5e5" BorderStyle="solid" ForeColor="#000" />
+    <EmptyZoneTextStyle />
+    <HeaderStyle Font-Size="0.8em" ForeColor="#000" HorizontalAlign="Center" />
+    <PartStyle />    
+    <TitleBarVerbStyle CssClass="WebPartsTitleBarVerb" Font-Underline="true" ForeColor="#000" />
+</asiweb:AsiWebPartZone>
+
+<asiweb:AsiWebPartZone runat="server" SkinId="MinimialWebPartZone" Font-Names="verdana,tahoma,arial,helvetica" style="width:100%;">
+    <MenuVerbStyle BackColor="White" ForeColor="Black" />
+    <MenuVerbHoverStyle BackColor="#80A3BD" />
+    <MenuPopupStyle BorderColor="#80A3BD" width="100px" CellPadding="0" CellSpacing="0" BorderWidth="1px" Font-Size="0.6em" Font-Names="verdana,tahoma,arial,helvetica" />
+    <MenuLabelStyle ForeColor="White" />
+    <PartTitleStyle CssClass="TitleBar" Font-Bold="True" Font-Size="0.8em" ForeColor="White" />
+    <PartChromeStyle BackColor="#F7F6F3" BorderColor="#80A3BD" Font-Names="Verdana" ForeColor="White" />
+    <EmptyZoneTextStyle Font-Size="0.8em" />
+    <HeaderStyle ForeColor="#CCCCCC" HorizontalAlign="Center" />
+    <PartStyle Font-Size="0.8em" ForeColor="#333333" />
+    <TitleBarVerbStyle Font-Underline="False" ForeColor="White" />
+</asiweb:AsiWebPartZone>
+
+<asiweb:AsiWebPartConnectionsZone runat="server" translate="yes"
+    CssClass="ConnectionWebPartsPanel" 
+    HeaderStyle-CssClass="ConnectionTitleBar" 
+    InstructionTextStyle-CssClass="WebPartInstruction" 
+    LabelStyle-CssClass="ConnectionWebPartLabel" 
+    VerbStyle-CssClass="BUTTON"
+    ConnectToProviderInstructionTextFormat="Create connections to other web parts to share data between them." 
+    HeaderTextFormat="Connect {0}"
+    GetTextFormat="Connect the input of {0} called: "
+    GetFromTextFormat="To the following output: " 
+    SendTextFormat="Connect the output of {0} called: " 
+    SendToTextFormat="To the following input: " 
+    ConnectToProviderTitle=""
+    InstructionTitle="Current connections for {0}" 
+    InstructionText="" 
+    ProvidersTitleFormat="Incoming connections" 
+    ProvidersInstructionText="" 
+    NoExistingConnectionInstructionText="" 
+    ConsumersTitleFormat="Outgoing connections" 
+    NoExistingConnectionTitleFormat="There are no active connections for {0}" 
+    ConsumersInstructionText=""
+    ConnectToConsumerText="" 
+    ConnectToProviderTextFormat="Create a new connection"
+    >
+    <HeaderCloseVerb ImageUrl="images/smallclose.gif" />
+</asiweb:AsiWebPartConnectionsZone>
+<asiweb:AsiWebPartEditorZone runat="server" translate="yes"
+    CssClass="WebPartsPanel" 
+    HeaderStyle-CssClass="DisplayNone" 
+    InstructionTextStyle-CssClass="DisplayNone" 
+    LabelStyle-CssClass="WebPartLabel" 
+    VerbStyle-CssClass="BUTTON"
+    HeaderTextFormat="Configure {0}" 
+    PropertyGridTitle="Properties"
+    InstructionTextFormat="Modify the properties of <span class=Significant>{0}</span>, then click OK or Apply to apply your changes.">
+</asiweb:AsiWebPartEditorZone>

@@ -1,0 +1,82 @@
+<asiweb:BusinessDataGrid runat="server" SkinID="StandardGrid"
+    CssClass="Grid"
+	ItemStyle-CssClass="GridRow"
+	PagerStyle-CssClass="GridPager"
+	AlternatingItemStyle-CssClass="GridAlternateRow"
+	HeaderStyle-CssClass="GridHeader"
+	FooterStyle-CssClass="GridFooter"
+	CssClassHover="GridRowHover"
+	UseHoverStyle="true"
+    CssClassNoRecords="PanelTableDataLastRow"
+    SelectedItemStyle-CssClass="GridRowSelected"
+    ></asiweb:BusinessDataGrid>
+
+<asp:DataGrid runat="server" SkinID="StandardGrid"
+    CssClass="Grid"
+	ItemStyle-CssClass="GridRow"
+	AlternatingItemStyle-CssClass="GridAlternateRow"
+	HeaderStyle-CssClass="GridHeader"
+	FooterStyle-CssClass="GridFooter"
+	CssClassHover="GridRowHover"
+	UseHoverStyle="true"
+    CssClassNoRecords="PanelTableDataLastRow"
+    SelectedItemStyle-CssClass="GridRowSelected"
+    ></asp:DataGrid>
+    
+<asp:GridView runat="server" SkinID="StandardGrid"
+    CssClass="Grid"
+	ItemStyle-CssClass="GridRow"
+	AlternatingItemStyle-CssClass="GridAlternateRow"
+	HeaderStyle-CssClass="GridHeader"
+	FooterStyle-CssClass="GridFooter"
+	CssClassHover="GridRowHover"
+	UseHoverStyle="true"
+    CssClassNoRecords="PanelTableDataLastRow"
+    SelectedItemStyle-CssClass="GridRowSelected"
+    ></asp:GridView>
+
+<asp:Menu runat="server" SkinID="VerticalMenu"     
+    Orientation="Vertical" StaticDisplayLevels="2" MaximumDynamicDisplayLevels="0" ItemWrap="true" 
+    ScrollDownImageUrl="images/nav_expand.gif" ScrollUpImageUrl="images/nav_collapse.gif"
+    StaticMenuItemStyle-CssClass="navlink" 
+    StaticHoverStyle-CssClass="navlinkhover"
+    StaticSelectedStyle-CssClass="navlinkselected"
+    Width="150px"></asp:Menu>
+    
+<asp:Menu runat="server" SkinID="HorizontalTabs"
+    Orientation="Horizontal" StaticDisplayLevels="1"
+    StaticMenuItemStyle-CssClass="HTabStatic" 
+    StaticHoverStyle-CssClass="HTabHover"
+    StaticSelectedStyle-CssClass="HTabSelected"
+    StaticMenuItemStyle-Height="27px"></asp:Menu>
+ 
+<asp:TreeView runat="server" SkinID="NavMenuTree" NodeWrap="true" NodeIndent="10"
+    ShowLines="false">
+    <NodeStyle CssClass="navlink" />
+    <HoverNodeStyle CssClass="navlinkhover" />
+    <SelectedNodeStyle CssClass="navlinkselected" />
+</asp:TreeView>
+    
+<%-- Desktop Compatibilty --%>
+<asp:Image runat="server" SkinId="NavArrowLeft" ImageUrl="images/icon_page_back.gif"></asp:Image>
+<asp:Image runat="server" SkinId="NavArrowLeftFF" ImageUrl="images/icon_page_fastback.gif"></asp:Image>
+<asp:Image runat="server" SkinId="NavArrowRight" ImageUrl="images/icon_page_next.gif"></asp:Image>
+<asp:Image runat="server" SkinId="NavArrowRightFF" ImageUrl="images/icon_page_fastforward.gif"></asp:Image>
+
+<asp:Image runat="server" SkinId="LogoNavLeft" ImageUrl="images/small_logo.png" Height="24" Width="65" Border="0" CssClass="LogoNavLeft" ></asp:Image>
+
+<asp:Image runat="server" SkinId="NewFolderImage" ImageUrl="images/pixel.png" CssClass="PVSprite NewFolderButton" />
+<asp:Image runat="server" SkinId="EditFolderImage" ImageUrl="images/pixel.png" CssClass="PVSprite EditFolderButton" />
+<asp:Image runat="server" SkinId="DeleteFolderImage" ImageUrl="images/pixel.png" CssClass="PVSprite DeleteFolderButton" />
+<asp:Image runat="server" SkinId="LinkProductImage" ImageUrl="images/pixel.png" CssClass="PVSprite LinkProductButton" />
+<asp:Image runat="server" SkinId="TestUrlImage" ImageUrl="images/pixel.png" CssClass="PVSprite TestURLButton" />
+<asp:Image runat="server" SkinID="ShoppingCart" ImageUrl="images/pixel.png" CssClass="PVSprite ShoppingCart" />
+<asp:Image runat="server" SkinId="ShoppingCartOff" ImageUrl="images/pixel.png" CssClass="PVSprite ShoppingCartOff" />
+<asp:Image runat="server" SkinId="ShoppingCartOffX" ImageUrl="images/pixel.png" CssClass="PVSprite ShoppingCartOffX" />
+<asp:Image runat="server" SkinId="CloseImage" ImageUrl="images/pixel.png" CssClass="PVSprite CloseImage" />
+<asp:ImageButton runat="server" SkinID="EditButton" ImageUrl="images/Pixel.png" CssClass="IconSprite EditIcon" />
+<asp:ImageButton runat="server" SkinID="DeleteButton" ImageUrl="images/Pixel.png" CssClass="IconSprite DeleteIcon" />
+<asp:ImageButton runat="server" SkinID="AddButton" ImageUrl="images/Pixel.png" CssClass="IconSprite AddIcon" />
+<asp:ImageButton runat="server" SkinID="Update" ImageUrl="images/Pixel.png" CssClass="IconSprite CheckIcon" />
+<asp:Image runat="server" SkinID="FindImage" ImageUrl="images/Pixel.png" CssClass="IconSprite FindIcon" />
+<asp:Image runat="server" SkinID="ContactImage" ImageUrl="images/Pixel.png" CssClass="IconSprite ContactIcon" />
