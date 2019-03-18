@@ -15,3 +15,28 @@ To install the demo website and theme follow these steps:
 10. (Optional) If you would like to see the "Follow us" navigation items in the footer you will need to add a custom navigation area. Go to **RiSE > Site Builder > Manage websites** and select your EcoCauses website. Select the **Navigation areas** tab and click the pencil icon on the tab. Add a new navigation area called "Footer2". Please note that the **Navigation Pane Code** will need to be 16 in order for the navigation to appear. If you already have a navigation area with the code 16 then you may need to update the "Follow us" navigaiton items to use the new navigation area instead.
 
 At this point you will have a working website with the new theme.
+
+## Helpful resources
+Below are some resources that may help you create a similar theme in RiSE.
+
+### Guides & how-tos
+[CSS-Tricks: A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)  
+[CSS-Tricks: A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)  
+[CSS-Tricks: Basics of CSS Blend Modes](https://css-tricks.com/basics-css-blend-modes/)
+
+### Tools
+Color palette generator: [Coolors](https://coolors.co/)  
+CSS gradient tool: [CSS Gradient](https://cssgradient.io/)
+
+### Free assets
+**Fonts:** [Google Fonts](https://fonts.google.com/), [Font Squirrel](https://www.fontsquirrel.com/) 
+
+**JavaScript:** [Animate on scroll library](https://github.com/michalsnik/aos), [ScrollMagic](http://scrollmagic.io/), [Moving Letters](http://tobiasahlin.com/moving-letters/#)  
+Please note: it's a best practice to use the latest _stable_ version of any JavaScript library.  
+
+**Photos & graphics:** [Unsplash](https://unsplash.com), [Pexels](https://www.pexels.com/), [humaaans](https://www.humaaans.com/), [Iconfinder](https://www.iconfinder.com/)
+
+### Paid assets
+**Fonts:** [Adobe Fonts](https://fonts.adobe.com/)  
+
+**Photos & graphics:** [iStockPhoto](https://www.istockphoto.com/), [CreativeMarket](https://creativemarket.com/)
