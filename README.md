@@ -33,7 +33,7 @@ CSS gradient tool: [CSS Gradient](https://cssgradient.io/)
 ### Free assets
 **Fonts:** [Google Fonts](https://fonts.google.com/), [Font Squirrel](https://www.fontsquirrel.com/) 
 
-**JavaScript:** [Animate on scroll library](https://github.com/michalsnik/aos), [ScrollMagic](http://scrollmagic.io/), [Moving Letters](http://tobiasahlin.com/moving-letters/#)  
+**JavaScript:** [Animate on scroll library](https://github.com/michalsnik/aos), [ScrollMagic](http://scrollmagic.io/), [Moving Letters](http://tobiasahlin.com/moving-letters/#), [Parallax.js](https://github.com/wagerfield/parallax)  
 Please note: it's a best practice to use the latest _stable_ version of any JavaScript library.  
 
 **Photos & graphics:** [Unsplash](https://unsplash.com), [Pexels](https://www.pexels.com/), [humaaans](https://www.humaaans.com/), [Iconfinder](https://www.iconfinder.com/)
