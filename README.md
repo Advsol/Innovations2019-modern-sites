@@ -3,7 +3,10 @@ Included in this repository are assets so you can include the Latte theme (demoe
 
 Slide show from the presentation is available here: <https://drive.google.com/open?id=1drBk9ZPyUxS2TFvFaD6GgHaYnDak5Tzp>
 
-A demo of this site and theme is currently available at <https://imistour15132.imiscloud.com/EcoCauses/>.
+A demo of this site and theme is currently available at <https://imistour15132.imiscloud.com/EcoCauses/>.  
+Note: standard Starter DB logins are active on this site. Feel free to log in, click around, and see how we accomplished these designs. However, please do not make any changes to the content on this site. Instead, follow the steps below to install the theme and site on your own instance of iMIS.
+
+If you would like to be notified when changes are made to this repository (e.g. if we make updates or add more resources) click the "Watch" button at the top of the repository.
 
 ## Website and theme installation instructions
 To install the demo website and theme follow these steps:
